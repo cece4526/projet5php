@@ -1,0 +1,17 @@
+{
+    "name": "cedric/projet_5_2023",
+    "description": "projet php/symfony",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Cédric Dupré",
+            "email": "cece4526@hotmail.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "autoload": {
+            "psr-4": {"App\\config\\":"config/","App\\src\\": "src/"}
+        }
+    }
+}
