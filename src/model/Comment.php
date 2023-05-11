@@ -1,6 +1,6 @@
 <?php
 
-namespace App\src\model;
+namespace App\Model;
 
 class Comment
 {
@@ -37,61 +37,69 @@ class Comment
     /**
      * @return int
      */
-    public function getId(){
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
      * @param int $id
      */
-    public function setId($id){
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
     /**
      * @return string
      */
-    public function getPseudo(){
+    public function getPseudo()
+    {
         return $this->pseudo;
     }
 
     /**
      * @param string $pseudo
      */
-    public function setPseudo($pseudo){
+    public function setPseudo($pseudo)
+    {
         $this->pseudo = $pseudo;
     }
 
     /**
      * @return string
      */
-    public function getContent(){
+    public function getContent()
+    {
         return $this->content;
     }
 
     /**
      * @param string $content
      */
-    public function setContent($content){
+    public function setContent($content)
+    {
         $this->content = $content;
     }
 
     /**
      * @return \DateTime
      */
-    public function getCreatedAt(){
+    public function getCreatedAt()
+    {
         return $this->createdAt;
     }
 
     /**
      * @param \DateTime $createdAt
      */
-    public function setCreatedAt($createdAt){
+    public function setCreatedAt($createdAt)
+    {
         $this->createdAt = $createdAt;
     }
      /**
-     * @return bool
-     */
+      * @return bool
+      */
     public function isFlag()
     {
         return $this->flag;
@@ -108,14 +116,16 @@ class Comment
     /**
      * @return int
      */
-    public function getStatus(){
+    public function getStatus()
+    {
         return $this->status;
     }
 
     /**
      * @param int $id
      */
-    public function setStatus($status){
+    public function setStatus($status)
+    {
         $this->status = $status;
     }
 }

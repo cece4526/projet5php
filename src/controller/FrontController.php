@@ -1,25 +1,32 @@
 <?php
 
-namespace App\src\controller;
-use App\config\Parameter;
+namespace App\Controller;
+use Config\Parameter;
 
-class FrontController extends Controller{
+class FrontController extends Controller
+{
     
 
-    public function home(){
+    public function home()
+    {
         $articles = $this->articleDAO->getAllArticles();
-        return $this->view->render('home', [
-           'allArticles' => $articles
-        ]);
+        return $this->view->render(
+            'home', [
+            'allArticles' => $articles
+            ]
+        );
     }
 
-    public function article($articleId){
+    public function article($articleId)
+    {
         $article = $this->articleDAO->getOneArticle($articleId);
         $comments = $this->commentDAO->getCommentsFromArticle($articleId);
-        return $this->view->render('single', [
+        return $this->view->render(
+            'single', [
             'article' => $article,
             'allComments' => $comments
-        ]);
+            ]
+        );
     }
     public function addComment(Parameter $post, $articleId)
     {
@@ -32,15 +39,18 @@ class FrontController extends Controller{
             }
             $article = $this->articleDAO->getOneArticle($articleId);
             $comments = $this->commentDAO->getCommentsFromArticle($articleId);
-            return $this->view->render('single', [
+            return $this->view->render(
+                'single', [
                 'article' => $article,
                 'comments' => $comments,
                 'post' => $post,
                 'errors' => $errors
-            ]);
+                ]
+            );
         }
     }
-    public function flagComment($commentId){
+    public function flagComment($commentId)
+    {
         $this->commentDAO->flagComment($commentId);
         $this->session->set('flag_comment', 'Le commentaire a bien été signalé');
         header('Location: ../public/index.php');
@@ -57,15 +67,18 @@ class FrontController extends Controller{
                 $this->session->set('register', 'Votre inscription a bien été effectuée');
                 header('Location: ../public/index.php');
             }
-            return $this->view->render('register', [
+            return $this->view->render(
+                'register', [
                 'post' => $post,
                 'errors' => $errors
-            ]);
+                ]
+            );
 
         }
         return $this->view->render('register');
     }
-    public function login(Parameter $post){
+    public function login(Parameter $post)
+    {
         if($post->get('submit')) {
             $user = $this->userDAO->login($post);
             $result = $this->checkLogin($post, $user);
@@ -78,15 +91,18 @@ class FrontController extends Controller{
             }
             else {
                 $this->session->set('error_login', 'Le pseudo ou le mot de passe sont incorrects');
-                return $this->view->render('login', [
+                return $this->view->render(
+                    'login', [
                     'post'=> $post
-                ]);
+                    ]
+                );
             }
         }
         return $this->view->render('login');
     }
-    public function checkLogin(Parameter $post, $result){
-        if ($result !== false){
+    public function checkLogin(Parameter $post, $result)
+    {
+        if ($result !== false) {
             $isPasswordValid = password_verify($post->get('password'), $result['password']);
             return [
                 'result' => $result,

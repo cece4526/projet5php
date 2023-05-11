@@ -1,13 +1,15 @@
 <?php
 
-namespace App\config;
+namespace Config;
 
-class Request{
+class Request
+{
     private $get;
     private $post;
     private $session;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->get = new Parameter($_GET);
         $this->post = new Parameter($_POST);
         $this->session = new Session($_SESSION);
@@ -16,21 +18,24 @@ class Request{
     /**
      * @return mixed
      */
-    public function getGet(){
+    public function getGet()
+    {
         return $this->get;
     }
 
     /**
      * @return mixed
      */
-    public function getPost(){
+    public function getPost()
+    {
         return $this->post;
     }
 
     /**
      * @return mixed
      */
-    public function getSession(){
+    public function getSession()
+    {
         return $this->session;
     }
 }

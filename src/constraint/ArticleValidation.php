@@ -1,7 +1,7 @@
 <?php
 
-namespace App\src\constraint;
-use App\config\Parameter;
+namespace App\Constraint;
+use Config\Parameter;
 
 class ArticleValidation extends Validation
 {
@@ -33,7 +33,8 @@ class ArticleValidation extends Validation
         }
     }
 
-    private function addError($name, $error) {
+    private function addError($name, $error)
+    {
         if($error) {
             $this->errors += [
                 $name => $error

@@ -1,17 +1,18 @@
 <?php
 
-namespace App\src\model;
+namespace App\Model;
 
-class Article{
+class Article
+{
     /**
      * @var int
      */
-    private $id;
+    private int $id;
 
     /**
      * @var string
      */
-    private $title;
+    private string $title;
 
     /**
      * @var string
@@ -31,70 +32,80 @@ class Article{
     /**
      * @return int
      */
-    public function getId(){
+    public function getId(): ?int
+    {
         return $this->id;
     }
 
     /**
      * @param int $id
      */
-    public function setId($id){
+    public function setId(int $id): void
+    {
         $this->id = $id;
     }
 
     /**
      * @return string
      */
-    public function getTitle(){
+    public function getTitle()
+    {
         return $this->title;
     }
 
     /**
      * @param string $title
      */
-    public function setTitle($title){
+    public function setTitle($title)
+    {
         $this->title = $title;
     }
 
     /**
      * @return string
      */
-    public function getContent(){
+    public function getContent()
+    {
         return $this->content;
     }
 
     /**
      * @param string $content
      */
-    public function setContent($content){
+    public function setContent($content)
+    {
         $this->content = $content;
     }
 
     /**
      * @return string
      */
-    public function getAuthor(){
+    public function getAuthor()
+    {
         return $this->author;
     }
 
     /**
      * @param string $author
      */
-    public function setAuthor($author){
+    public function setAuthor($author)
+    {
         $this->author = $author;
     }
 
     /**
      * @return \DateTime
      */
-    public function getCreatedAt(){
+    public function getCreatedAt()
+    {
         return $this->createdAt;
     }
 
     /**
      * @param \DateTime $createdAt
      */
-    public function setCreatedAt($createdAt){
+    public function setCreatedAt($createdAt)
+    {
         $this->createdAt = $createdAt;
     }
 }

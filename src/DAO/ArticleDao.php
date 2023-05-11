@@ -1,11 +1,13 @@
 <?php
-namespace App\src\DAO;
+namespace App\DAO;
 use App\config\Parameter;
-use App\src\model\Article;
+use App\model\Article;
 
-class ArticleDAO extends DAO{
+class ArticleDAO extends DAO
+{
 
-    private function buildObject ($row){
+    private function buildObject($row)
+    {
         $article = new Article();
         $article->setId($row['id']);
         $article->setTitle($row['title']);
@@ -14,7 +16,8 @@ class ArticleDAO extends DAO{
         $article->setCreatedAt($row['createdAt']);
         return $article;
     }
-    public function getAllArticles(){
+    public function getAllArticles()
+    {
         $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id ORDER BY article.id DESC';
         $result = $this->createQuery($sql);
         $articles = [];
@@ -26,7 +29,8 @@ class ArticleDAO extends DAO{
         return $articles;
     }
 
-    public function getOneArticle($articleId){
+    public function getOneArticle($articleId)
+    {
         $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id WHERE article.id = ?';
         $result = $this->createQuery($sql, [$articleId]);
         $article = $result->fetch();
@@ -34,20 +38,25 @@ class ArticleDAO extends DAO{
         return $this->buildObject($article);
     }
 
-    public function addArticle(Parameter $post, $userId){
+    public function addArticle(Parameter $post, $userId)
+    {
         $sql = 'INSERT INTO article (title, content, createdAt, user_id) VALUES (?, ?, NOW(), ?)';
         $this->createQuery($sql, [$post->get('title'), $post->get('content'), $userId]);
     }
-    public function editArticle(Parameter $post, $articleId, $userId){
+    public function editArticle(Parameter $post, $articleId, $userId)
+    {
         $sql = 'UPDATE article SET title=:title, content=:content, user_id=:user_id WHERE id=:articleId';
-        $this->createQuery($sql, [
+        $this->createQuery(
+            $sql, [
             'title' => $post->get('title'),
             'content' => $post->get('content'),
             'user_id' => $userId,
             'articleId' => $articleId
-        ]);
+            ]
+        );
     }
-    public function deleteArticle($articleId){
+    public function deleteArticle($articleId)
+    {
         $sql = 'DELETE FROM comment WHERE article_id = ?';
         $this->createQuery($sql, [$articleId]);
         $sql = 'DELETE FROM article WHERE id = ?';

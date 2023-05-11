@@ -1,10 +1,12 @@
 <?php
 
-namespace App\src\controller;
-use App\config\Parameter;
+namespace App\Controller;
+use Config\Parameter;
 
-class BackController extends Controller{
-    private function checkLoggedIn(){
+class BackController extends Controller
+{
+    private function checkLoggedIn()
+    {
         if(!$this->session->get('pseudo')) {
             $this->session->set('need_login', 'Vous devez vous connecter pour accéder à cette page');
             header('Location: ../public/index.php?route=login');
@@ -13,7 +15,8 @@ class BackController extends Controller{
         }
     }
 
-    private function checkAdmin(){
+    private function checkAdmin()
+    {
         $this->checkLoggedIn();
         if(!($this->session->get('role') === 'admin')) {
             $this->session->set('not_admin', 'Vous n\'avez pas le droit d\'accéder à cette page');
@@ -23,17 +26,20 @@ class BackController extends Controller{
         }
     }
 
-    public function administration(){
+    public function administration()
+    {
         if($this->checkAdmin()) {
             $articles = $this->articleDAO->getAllArticles();
             $comments = $this->commentDAO->getFlagComments();
             $users = $this->userDAO->getUsers();
 
-            return $this->view->render('administration', [
+            return $this->view->render(
+                'administration', [
                 'articles' => $articles,
                 'comments' => $comments,
                 'users' => $users
-            ]);   
+                ]
+            );   
         }
     }
     public function addArticle(Parameter $post)
@@ -45,10 +51,12 @@ class BackController extends Controller{
                 $this->session->set('add_article', 'Le nouvel article a bien été ajouté');
                 header('Location: ../public/index.php?route=administration');
             }
-            return $this->view->render('add_article', [
+            return $this->view->render(
+                'add_article', [
                 'post' => $post,
                 'errors' => $errors
-            ]);
+                ]
+            );
         }
         return $this->view->render('add_article');
     }
@@ -62,10 +70,12 @@ class BackController extends Controller{
                 $this->session->set('edit_article', 'L\' article a bien été modifié');
                 header('Location: ../public/index.php?route=administration');
             }
-            return $this->view->render('edit_article', [
+            return $this->view->render(
+                'edit_article', [
                 'post' => $post,
                 'errors' => $errors
-            ]);
+                ]
+            );
 
         }
         $post->set('id', $article->getId());
@@ -73,29 +83,36 @@ class BackController extends Controller{
         $post->set('content', $article->getContent());
         $post->set('author', $article->getAuthor());
 
-        return $this->view->render('edit_article', [
+        return $this->view->render(
+            'edit_article', [
             'post' => $post
-        ]);
+            ]
+        );
     }
-    public function deleteArticle($articleId){
+    public function deleteArticle($articleId)
+    {
         $this->articleDAO->deleteArticle($articleId);
         $this->session->set('delete_article', 'L\' article a bien été supprimé');
         header('Location: ../public/index.php?route=administration');
     }
-    public function unflagComment($commentId){
+    public function unflagComment($commentId)
+    {
         $this->commentDAO->unflagComment($commentId);
         $this->session->set('unflag_comment', 'Le commentaire a bien été désignalé');
         header('Location: ../public/index.php?route=administration');
     }
-    public function deleteComment($commentId){
+    public function deleteComment($commentId)
+    {
         $this->commentDAO->deleteComment($commentId);
         $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
         header('Location: ../public/index.php');
     }
-    public function profile(){
+    public function profile()
+    {
         return $this->view->render('profile');
     }
-    public function updatePassword(Parameter $post){
+    public function updatePassword(Parameter $post)
+    {
         if($post->get('submit')) {
             $this->userDAO->updatePassword($post, $this->session->get('pseudo'));
             $this->session->set('update_password', 'Le mot de passe a été mis à jour');
@@ -103,22 +120,26 @@ class BackController extends Controller{
         }
         return $this->view->render('update_password');
     }
-    public function logout(){
+    public function logout()
+    {
         $this->logoutOrDelete('logout');
     }
 
-    public function deleteAccount(){
+    public function deleteAccount()
+    {
         $this->userDAO->deleteAccount($this->session->get('pseudo'));
         $this->logoutOrDelete('delete_account');
     }
     
-    public function deleteUser($userId){
+    public function deleteUser($userId)
+    {
         $this->userDAO->deleteUser($userId);
         $this->session->set('delete_user', 'L\'utilisateur a bien été supprimé');
         header('Location: ../public/index.php?route=administration');
     }
 
-    private function logoutOrDelete($param){
+    private function logoutOrDelete($param)
+    {
         $this->session->stop();
         $this->session->start();
         if($param === 'logout') {

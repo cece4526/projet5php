@@ -1,16 +1,16 @@
 <?php
-namespace App\src\DAO;
+namespace App\DAO;
 use PDO;
 use Exception;
 
-abstract class DAO 
-
+abstract class DAO
 {
     
     private $connection;
-    private function checkConnection(){
+    private function checkConnection()
+    {
         //verifie si la connection est nulle
-        if($this->connection === null){
+        if($this->connection === null) {
             return $this->getConnection();
         }
         return $this->connection;
@@ -20,7 +20,7 @@ abstract class DAO
     {
         //tentative de connexion à la bas de données
         try{
-            $this->connection = new PDO(DB_HOST,DB_USER,DB_PASS);
+            $this->connection = new PDO(DB_HOST, DB_USER, DB_PASS);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $this->connection;
         }
@@ -30,8 +30,9 @@ abstract class DAO
         }
     }
     
-    protected function createQuery($sql, $parameters = null){
-        if($parameters){
+    protected function createQuery($sql, $parameters = null)
+    {
+        if($parameters) {
             $result = $this->checkConnection()->prepare($sql);
             $result->execute($parameters);
             return $result;
