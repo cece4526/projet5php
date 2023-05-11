@@ -1,6 +1,6 @@
-CREATE TABLE `comment` (`id` int(11) NOT NULL,`pseudo` varchar(100) NOT NULL,`content` text NOT NULL,`createdAt` datetime NOT NULL,`article_id` int(11) NOT NULL, 'status' int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `comment` (`id` int(11) NOT NULL,`pseudo` varchar(100) NOT NULL,`content` text NOT NULL,`createdAt` datetime NOT NULL,`article_id` int(11) NOT NULL, `status` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `comment` (`id`, `pseudo`, `content`, `createdAt`, `article_id`, 'status') VALUES
+INSERT INTO `comment` (`id`, `pseudo`, `content`, `createdAt`, `article_id`, `status`) VALUES
 (1, 'Jean', 'Génial, hâte de voir ce que ça donne !', '2019-03-16 21:02:24', 1, 1),
 (2, 'Nina', 'Trop cool ! depuis le temps', '2019-03-17 17:34:35', 1, 2),
 (3, 'Rodrigo', 'Great ! ', '2019-03-17 17:42:04', 1, 2),

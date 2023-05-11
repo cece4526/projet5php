@@ -1,5 +1,5 @@
 {
-    "name": "cedric/projet_5_2023",
+    "name": "cedric/projet5php",
     "description": "projet php/symfony",
     "type": "project",
     "authors": [
@@ -10,8 +10,6 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "autoload": {
-            "psr-4": {"App\\config\\":"config/","App\\src\\": "src/"}
-        }
+        "twig/twig": "^3.6"
     }
 }
