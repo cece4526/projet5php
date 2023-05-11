@@ -2,6 +2,8 @@
 
 namespace App\src\controller;
 
+
+
 use App\config\Request;
 use App\src\constraint\Validation;
 use App\src\DAO\ArticleDAO;
@@ -11,6 +13,7 @@ use App\src\model\View;
 
 abstract class Controller
 {
+    
     protected $articleDAO;
     protected $commentDAO;
     protected $userDAO;

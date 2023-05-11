@@ -4,6 +4,8 @@ namespace App\src\controller;
 use App\config\Parameter;
 
 class FrontController extends Controller{
+    
+
     public function home(){
         $articles = $this->articleDAO->getAllArticles();
         return $this->view->render('home', [
