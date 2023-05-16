@@ -1,5 +1,5 @@
 <?php $this->title = 'Administration'; ?>
-
+p
 <div class="center">
     <div class="content_center">
         <h3>Administration</h3>
@@ -19,13 +19,12 @@
         <a class="margin bouton4" href="../public/index.php?route=addArticle">Nouvel article</a>
         <table class="table-responsive">
             <tr>
-            <th scope="row">Id</th>
+                <th scope="row">Id</th>
                 <th scope="row">Pseudo</th>
                 <th scope="row">Contenu</th>
                 <th scope="row">Auteur</th>
                 <th scope="row">Date</th>
                 <th scope="row">Actions</th>
-                
             </tr>
             <?php
             foreach ($articles as $article)
@@ -55,16 +54,17 @@
                 <th scope="row">Message</th>
                 <th scope="row">Date</th>
                 <th scope="row">Actions</th>
+                <th scope="row">Status</th>
             </tr>
             <?php
-            foreach ($comments as $comment)
-            {
-                ?>
+            foreach ($allComments as $comment)
+            {?>
                 <tr>
                     <td scope="col"><?= htmlspecialchars($comment->getId());?></td>
                     <td scope="col"><?= htmlspecialchars($comment->getPseudo());?></td>
                     <td scope="col"><?= substr(htmlspecialchars($comment->getContent()), 0, 150);?></td>
                     <td scope="col">Créé le : <?= htmlspecialchars($comment->getCreatedAt());?></td>
+                    <td scope="col"><?= htmlspecialchars($comment->getStatus);?></td>
                     <td scope="col">
                         <a href="../public/index.php?route=unflagComment&commentId=<?= $comment->getId(); ?>">Désignaler le commentaire</a>
                         <a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a>

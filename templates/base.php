@@ -3,8 +3,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8" />
-    <title><?= $title ?></title>
-    <link rel="stylesheet" type="text/css" href="css/stylesheets/main.css">
+    <title>{% block title %}{% endblock name %}</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdn.tiny.cloud/1/ye3lj6zon9s9sgu48dzjieh2sgfp3h7xt5xoowgbfypcz3uw/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>

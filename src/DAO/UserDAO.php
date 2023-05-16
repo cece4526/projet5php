@@ -2,7 +2,7 @@
 
 namespace App\DAO;
 
-use App\config\Parameter;
+use config\Parameter;
 use App\model\User;
 
 class UserDAO extends DAO

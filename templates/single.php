@@ -20,24 +20,26 @@
     <?php }?>
     <h3>Commentaires</h3>
     <?php
-        foreach($allComments as $comment){?>
-            <div class="card_home_border card_home_color">
-            <h4><?= htmlspecialchars($comment->getPseudo());?></h4>
-            <p><?=htmlspecialchars($comment->getContent());?></p>
-            <p>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
-            <?php
-            if($comment->isFlag()) {?>
-                <p>Ce commentaire a déjà été signalé</p>
-            <?php } 
-            elseif ($this->session->get('pseudo') == $comment->getPseudo() OR $this->session->get('role') === 'admin') { ?>
-                <p><a class="bouton4" href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
-                <p><a class="bouton4" href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a></p>
-               <?php }
-            else { ?>
-                <p><a class="bouton4" href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
-            <?php } ?>
-            </div>
-        <?php }
+        foreach($allComments as $comment){
+            if($comment->getStatus() == 1){?>
+                <div class="card_home_border card_home_color">
+                <h4><?= htmlspecialchars($comment->getPseudo());?></h4>
+                <p><?=htmlspecialchars($comment->getContent());?></p>
+                <p>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
+                <?php
+                if($comment->isFlag()) {?>
+                    <p>Ce commentaire a déjà été signalé</p>
+                <?php } 
+                elseif ($this->session->get('pseudo') == $comment->getPseudo() OR $this->session->get('role') === 'admin') { ?>
+                    <p><a class="bouton4" href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
+                    <p><a class="bouton4" href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a></p>
+                <?php }
+                else { ?>
+                    <p><a class="bouton4" href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
+                <?php } ?>
+                </div>
+            <?php }
+        }
         ;?> 
 </div>
 <a class="margin bouton4" href="../public/index.php">Accueil</a>

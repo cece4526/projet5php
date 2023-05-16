@@ -1,6 +1,6 @@
 <?php
 namespace App\DAO;
-use App\config\Parameter;
+use config\Parameter;
 use App\model\Comment;
 
 class CommentDAO extends DAO
@@ -32,7 +32,7 @@ class CommentDAO extends DAO
     }
     public function addComment(Parameter $post, $articleId)
     {
-        $sql = 'INSERT INTO comment (pseudo, content, createdAt, article_id, status) VALUES (?, ?, NOW(), ?)';
+        $sql = 'INSERT INTO comment (pseudo, content, createdAt, article_id, status) VALUES (?, ?, NOW(), ?, 2)';
         $this->createQuery($sql, [$post->get('pseudo'), $post->get('content'), $articleId]);
     }
     public function flagComment($commentId)
@@ -61,5 +61,17 @@ class CommentDAO extends DAO
         }
         $result->closeCursor();
         return $comments;
+    }
+    public function getStatusComments()
+    {
+        $sql = 'SELECT id, pseudo, content, createdAt, flag, status FROM comment WHERE status = ? ORDER BY createdAt DESC';
+        $result = $this->createQuery($sql, [2]);
+        $statusComments = [];
+        foreach ($result as $row) {
+            $commentId = $row['id'];
+            $statusComments[$commentId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $statusComments;
     }
 }
