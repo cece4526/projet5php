@@ -13,6 +13,7 @@ p
                 <?= $this->session->show('flag_comment'); ?>
                 <?= $this->session->show('delete_comment'); ?>
                 <?= $this->session->show('delete_user'); ?>
+                <?= $this->session->show('validate_comment'); ?>
             </p>
         </div>
         <h4>Articles</h4>
@@ -54,20 +55,44 @@ p
                 <th scope="row">Message</th>
                 <th scope="row">Date</th>
                 <th scope="row">Actions</th>
-                <th scope="row">Status</th>
             </tr>
             <?php
-            foreach ($allComments as $comment)
+            foreach ($comments as $comment)
             {?>
                 <tr>
                     <td scope="col"><?= htmlspecialchars($comment->getId());?></td>
                     <td scope="col"><?= htmlspecialchars($comment->getPseudo());?></td>
                     <td scope="col"><?= substr(htmlspecialchars($comment->getContent()), 0, 150);?></td>
                     <td scope="col">Créé le : <?= htmlspecialchars($comment->getCreatedAt());?></td>
-                    <td scope="col"><?= htmlspecialchars($comment->getStatus);?></td>
                     <td scope="col">
                         <a href="../public/index.php?route=unflagComment&commentId=<?= $comment->getId(); ?>">Désignaler le commentaire</a>
                         <a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
+        </table>
+
+        <h2>Commentaires a valider</h2>
+        <table class="table-responsive">
+            <tr>
+                <th scope="row">Id</th>
+                <th scope="row">Pseudo</th>
+                <th scope="row">Message</th>
+                <th scope="row">Date</th>
+                <th scope="row">Actions</th>
+            </tr>
+            <?php
+            foreach ($statusComments as $comment)
+            {?>
+                <tr>
+                    <td scope="col"><?= htmlspecialchars($comment->getId());?></td>
+                    <td scope="col"><?= htmlspecialchars($comment->getPseudo());?></td>
+                    <td scope="col"><?= substr(htmlspecialchars($comment->getContent()), 0, 150);?></td>
+                    <td scope="col">Créé le : <?= htmlspecialchars($comment->getCreatedAt());?></td>
+                    <td scope="col">
+                        <a href="../public/index.php?route=validateComment&commentId=<?= $comment->getId(); ?>">Valider le commentaire</a>
                     </td>
                 </tr>
                 <?php

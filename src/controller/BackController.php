@@ -97,6 +97,12 @@ class BackController extends Controller
         $this->session->set('delete_article', 'L\' article a bien été supprimé');
         header('Location: ../public/index.php?route=administration');
     }
+    public function validateComment($commentId)
+    {
+        $this->commentDAO->validateComment($commentId);
+        $this->session->set('validate_comment', 'Le commentaire a bien été validé');
+        header('Location: ../public/index.php?route=administration');
+    }
     public function unflagComment($commentId)
     {
         $this->commentDAO->unflagComment($commentId);

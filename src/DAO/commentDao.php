@@ -74,4 +74,9 @@ class CommentDAO extends DAO
         $result->closeCursor();
         return $statusComments;
     }
+    public function validateComment($commentId)
+    {
+        $sql = 'UPDATE comment SET status = ? WHERE id = ?';
+        $this->createQuery($sql, [1, $commentId]);
+    }
 }

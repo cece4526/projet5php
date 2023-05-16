@@ -1,6 +1,6 @@
 <?php
 namespace App\DAO;
-use App\config\Parameter;
+use config\Parameter;
 use App\model\Article;
 
 class ArticleDAO extends DAO
