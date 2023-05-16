@@ -1,7 +1,7 @@
 <?php $this->title = 'Modifier mot mot de passe'; ?>
 <h3>Changer de mot de passe</h3>
 <div>
-    <p>Le mot de passe de <?= $this->session->get('pseudo'); ?> sera modifié</p>
+    <p>Le mot de passe de <?php echo $this->session->get('pseudo'); ?> sera modifié</p>
     <form method="post" action="../public/index.php?route=updatePassword">
         <label for="password">Mot de passe</label><br>
         <input type="password" id="password" name="password"><br>

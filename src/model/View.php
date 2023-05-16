@@ -3,6 +3,8 @@
 namespace App\Model;
 
 use Config\Request;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 class View
 {
@@ -19,16 +21,25 @@ class View
 
     public function render($template, $data = [])
     {
-        $this->file = '../templates/'.$template.'.php';
-        $content  = $this->renderFile($this->file, $data);
-        $view = $this->renderFile(
-            '../templates/base.php', [
-            'title' => $this->title,
-            'content' => $content,
-            'session' => $this->session
-            ]
-        );
-        echo $view;
+        $loader = new FilesystemLoader( '../templates');
+        $twig = new Environment($loader, [
+            'cache' => '../templates/tmp',
+            'debug' => true
+        ]);
+        $twig->addExtension(new \Twig\Extension\DebugExtension());
+        $data['session']= $this->session;
+        echo $twig->render($template, $data);
+        die;
+        // $this->file = '../templates/'.$template.'.php';
+        // $content  = $this->renderFile($this->file, $data);
+        // $view = $this->renderFile(
+        //     '../templates/base.php', [
+        //     'title' => $this->title,
+        //     'content' => $content,
+        //     'session' => $this->session
+        //     ]
+        // );
+        // echo $view;
     }
 
     private function renderFile($file, $data)

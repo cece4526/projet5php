@@ -6,12 +6,15 @@ use Config\Parameter;
 class FrontController extends Controller
 {
     
-
+    /**
+     * Page d'acceuil
+     * @return <this->
+    */
     public function home()
     {
         $articles = $this->articleDAO->getAllArticles();
         return $this->view->render(
-            'home', [
+            'home.html.twig', [
             'allArticles' => $articles
             ]
         );

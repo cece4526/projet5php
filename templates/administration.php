@@ -6,14 +6,14 @@ p
         <a class="margin bouton4" href="../public/index.php">Accueil</a>
         <div class="message">
             <p class="message_text">
-                <?=$this->session->show('add_article');?>
-                <?= $this->session->show('edit_article'); ?>
-                <?= $this->session->show('delete_article'); ?>
-                <?= $this->session->show('add_comment'); ?>
-                <?= $this->session->show('flag_comment'); ?>
-                <?= $this->session->show('delete_comment'); ?>
-                <?= $this->session->show('delete_user'); ?>
-                <?= $this->session->show('validate_comment'); ?>
+                <?php echo $this->session->show('add_article');?>
+                <?php echo $this->session->show('edit_article'); ?>
+                <?php echo $this->session->show('delete_article'); ?>
+                <?php echo $this->session->show('add_comment'); ?>
+                <?php echo $this->session->show('flag_comment'); ?>
+                <?php echo $this->session->show('delete_comment'); ?>
+                <?php echo $this->session->show('delete_user'); ?>
+                <?php echo $this->session->show('validate_comment'); ?>
             </p>
         </div>
         <h4>Articles</h4>
@@ -32,14 +32,14 @@ p
             {
                 ?>
                 <tr>
-                    <td scope="col"><?= htmlspecialchars($article->getId());?></td>
-                    <td scope="col"><?= htmlspecialchars($article->getTitle());?></a></td>
-                    <td scope="col"><?= substr(strip_tags($article->getContent()), 0, 150);?></td>
-                    <td scope="col"><?= htmlspecialchars($article->getAuthor());?></td>
-                    <td scope="col">Créé le : <?= htmlspecialchars($article->getCreatedAt());?></td>
+                    <td scope="col"><?php echo htmlspecialchars($article->getId());?></td>
+                    <td scope="col"><?php echo htmlspecialchars($article->getTitle());?></a></td>
+                    <td scope="col"><?php echo substr(strip_tags($article->getContent()), 0, 150);?></td>
+                    <td scope="col"><?php echo htmlspecialchars($article->getAuthor());?></td>
+                    <td scope="col">Créé le : <?php echo htmlspecialchars($article->getCreatedAt());?></td>
                     <td scope="col">
-                        <a href="../public/index.php?route=editArticle&articleId=<?= $article->getId(); ?>">Modifier</a>
-                        <a href="../public/index.php?route=deleteArticle&articleId=<?= $article->getId(); ?>">Supprimer</a>
+                        <a href="../public/index.php?route=editArticle&articleId=<?php echo $article->getId(); ?>">Modifier</a>
+                        <a href="../public/index.php?route=deleteArticle&articleId=<?php echo $article->getId(); ?>">Supprimer</a>
                     </td>
                 </tr>
                 <?php
@@ -60,13 +60,13 @@ p
             foreach ($comments as $comment)
             {?>
                 <tr>
-                    <td scope="col"><?= htmlspecialchars($comment->getId());?></td>
-                    <td scope="col"><?= htmlspecialchars($comment->getPseudo());?></td>
-                    <td scope="col"><?= substr(htmlspecialchars($comment->getContent()), 0, 150);?></td>
-                    <td scope="col">Créé le : <?= htmlspecialchars($comment->getCreatedAt());?></td>
+                    <td scope="col"><?php echo htmlspecialchars($comment->getId());?></td>
+                    <td scope="col"><?php echo htmlspecialchars($comment->getPseudo());?></td>
+                    <td scope="col"><?php echo substr(htmlspecialchars($comment->getContent()), 0, 150);?></td>
+                    <td scope="col">Créé le : <?php echo htmlspecialchars($comment->getCreatedAt());?></td>
                     <td scope="col">
-                        <a href="../public/index.php?route=unflagComment&commentId=<?= $comment->getId(); ?>">Désignaler le commentaire</a>
-                        <a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a>
+                        <a href="../public/index.php?route=unflagComment&commentId=<?php echo $comment->getId(); ?>">Désignaler le commentaire</a>
+                        <a href="../public/index.php?route=deleteComment&commentId=<?php echo $comment->getId(); ?>">Supprimer le commentaire</a>
                     </td>
                 </tr>
                 <?php
@@ -87,12 +87,13 @@ p
             foreach ($statusComments as $comment)
             {?>
                 <tr>
-                    <td scope="col"><?= htmlspecialchars($comment->getId());?></td>
-                    <td scope="col"><?= htmlspecialchars($comment->getPseudo());?></td>
-                    <td scope="col"><?= substr(htmlspecialchars($comment->getContent()), 0, 150);?></td>
-                    <td scope="col">Créé le : <?= htmlspecialchars($comment->getCreatedAt());?></td>
+                    <td scope="col"><?php echo htmlspecialchars($comment->getId());?></td>
+                    <td scope="col"><?php echo htmlspecialchars($comment->getPseudo());?></td>
+                    <td scope="col"><?php echo substr(htmlspecialchars($comment->getContent()), 0, 150);?></td>
+                    <td scope="col">Créé le : <?php echo htmlspecialchars($comment->getCreatedAt());?></td>
                     <td scope="col">
-                        <a href="../public/index.php?route=validateComment&commentId=<?= $comment->getId(); ?>">Valider le commentaire</a>
+                        <a href="../public/index.php?route=validateComment&commentId=<?php echo $comment->getId(); ?>">Valider le commentaire</a>
+                        <a href="../public/index.php?route=deleteComment&commentId=<?php echo $comment->getId(); ?>">Supprimer le commentaire</a>
                     </td>
                 </tr>
                 <?php
@@ -114,15 +115,15 @@ p
             {
                 ?>
                 <tr>
-                    <td scope="col"><?= htmlspecialchars($user->getId());?></td>
-                    <td scope="col"><?= htmlspecialchars($user->getPseudo());?></td>
-                    <td scope="col">Créé le : <?= htmlspecialchars($user->getCreatedAt());?></td>
-                    <td scope="col"><?= htmlspecialchars($user->getRole());?></td>
+                    <td scope="col"><?php echo htmlspecialchars($user->getId());?></td>
+                    <td scope="col"><?php echo htmlspecialchars($user->getPseudo());?></td>
+                    <td scope="col">Créé le : <?php echo htmlspecialchars($user->getCreatedAt());?></td>
+                    <td scope="col"><?php echo htmlspecialchars($user->getRole());?></td>
                     <?php if($user->getRole() === 'admin') { ?>
                         <td scope="col">compte admin</td>
-                        <?php }else{?>
-                        <td scope="col"><a href="../public/index.php?route=deleteUser&userId=<?= $user->getId(); ?>">Supprimer le compte</a></td>
-                        <?php } ?>    
+                    <?php }else{?>
+                        <td scope="col"><a href="../public/index.php?route=deleteUser&userId=<?php echo $user->getId(); ?>">Supprimer le compte</a></td>
+                    <?php } ?>    
                     </tr>
                 <?php
             }
