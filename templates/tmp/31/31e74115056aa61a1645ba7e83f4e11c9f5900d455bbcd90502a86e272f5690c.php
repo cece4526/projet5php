@@ -145,7 +145,10 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
             // line 81
             echo twig_escape_filter($this->env, twig_striptags(twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "method", false, false, false, 81), 0, 50)), "html", null, true);
             echo "</p>
-                <a href=\"../public/index.php?route=article&articleId=<?php echo htmlspecialchars(\$article->getId());?>\">lire la suite...</a>
+                <a href=\"../public/index.php?route=article&articleId= ";
+            // line 82
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getId", [], "method", false, false, false, 82), "html", null, true);
+            echo " \">lire la suite...</a>
                 <p class=\"card-text\">";
             // line 83
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getAuthor", [], "method", false, false, false, 83), "html", null, true);
@@ -176,7 +179,7 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
 
     public function getDebugInfo()
     {
-        return array (  155 => 84,  151 => 83,  146 => 81,  142 => 80,  138 => 78,  133 => 77,  130 => 60,  116 => 31,  110 => 27,  106 => 25,  104 => 24,  94 => 16,  92 => 15,  86 => 12,  82 => 11,  78 => 10,  74 => 9,  70 => 8,  66 => 7,  62 => 6,  58 => 4,  54 => 3,  47 => 2,  36 => 1,);
+        return array (  158 => 84,  154 => 83,  150 => 82,  146 => 81,  142 => 80,  138 => 78,  133 => 77,  130 => 60,  116 => 31,  110 => 27,  106 => 25,  104 => 24,  94 => 16,  92 => 15,  86 => 12,  82 => 11,  78 => 10,  74 => 9,  70 => 8,  66 => 7,  62 => 6,  58 => 4,  54 => 3,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -262,7 +265,7 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
             <div class=\"card_home_border card-body card_home_width card_home_color\">
                 <h2 class=\"card-title h2\">{{ article.getTitle() }}</h2>
                 <p class=\"card-text\">{{ article.content()|slice(0,50)|striptags }}</p>
-                <a href=\"../public/index.php?route=article&articleId=<?php echo htmlspecialchars(\$article->getId());?>\">lire la suite...</a>
+                <a href=\"../public/index.php?route=article&articleId= {{ article.getId() }} \">lire la suite...</a>
                 <p class=\"card-text\">{{ article.getAuthor()}}</p>
                 <p class=\"card-text\">{{article.getCreatedAt()}}</p>
             </div>        

@@ -99,6 +99,8 @@ class BackController extends Controller
     }
     public function validateComment($commentId)
     {
+        var_dump($commentId);
+        die;
         $this->commentDAO->validateComment($commentId);
         $this->session->set('validate_comment', 'Le commentaire a bien été validé');
         header('Location: ../public/index.php?route=administration');
