@@ -35,7 +35,7 @@ class BackController extends Controller
             $users = $this->userDAO->getUsers();
 
             return $this->view->render(
-                'administration', [
+                'administration.html.twig', [
                 'articles' => $articles,
                 'comments' => $comments,
                 'statusComments' => $statusComments,
@@ -54,7 +54,7 @@ class BackController extends Controller
                 header('Location: ../public/index.php?route=administration');
             }
             return $this->view->render(
-                'add_article', [
+                'add_article.html.twig', [
                 'post' => $post,
                 'errors' => $errors
                 ]
