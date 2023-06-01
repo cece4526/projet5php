@@ -9,7 +9,7 @@ use App\Constraint\Validation;
 use App\DAO\ArticleDAO;
 use App\DAO\CommentDAO;
 use App\DAO\UserDAO;
-use App\Model\View;
+use App\Model\TemplateRenderer;
 
 abstract class Controller
 {
@@ -29,7 +29,7 @@ abstract class Controller
         $this->articleDAO = new ArticleDAO();
         $this->commentDAO = new CommentDAO();
         $this->userDAO = new UserDAO();
-        $this->view = new View();
+        $this->view = new TemplateRenderer();
         $this->validation = new Validation();
         $this->request = new Request();
         $this->get = $this->request->getGet();

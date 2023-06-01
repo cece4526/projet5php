@@ -5,11 +5,6 @@ use Config\Parameter;
 
 class FrontController extends Controller
 {
-    
-    /**
-     * Page d'acceuil
-     * @return <this->
-    */
     public function home()
     {
         $articles = $this->articleDAO->getAllArticles();
@@ -25,7 +20,7 @@ class FrontController extends Controller
         $article = $this->articleDAO->getOneArticle($articleId);
         $comments = $this->commentDAO->getCommentsFromArticle($articleId);
         return $this->view->render(
-            'single', [
+            'single.html.twig', [
             'article' => $article,
             'allComments' => $comments
             ]
@@ -43,7 +38,7 @@ class FrontController extends Controller
             $article = $this->articleDAO->getOneArticle($articleId);
             $comments = $this->commentDAO->getCommentsFromArticle($articleId);
             return $this->view->render(
-                'single', [
+                'single.html.twig', [
                 'article' => $article,
                 'comments' => $comments,
                 'post' => $post,
@@ -71,14 +66,14 @@ class FrontController extends Controller
                 header('Location: ../public/index.php');
             }
             return $this->view->render(
-                'register', [
+                'register.html.twig', [
                 'post' => $post,
                 'errors' => $errors
                 ]
             );
 
         }
-        return $this->view->render('register');
+        return $this->view->render('register.html.twig');
     }
     public function login(Parameter $post)
     {

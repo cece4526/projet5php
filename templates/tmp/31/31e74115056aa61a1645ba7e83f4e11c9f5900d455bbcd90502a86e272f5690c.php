@@ -97,13 +97,13 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
             </button>
             <div id=\"navbarContent\" class=\"collapse navbar-collapse menu_dir\">
                 <ul class=\"navbar-nav\">
-                    <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=logout\">Déconnexion</a></li>
-                    <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=profile\">Profil</a></li>
+                    <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=logout\">Déconnexion</a></li>
+                    <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=profile\">Profil</a></li>
                     ";
             // line 24
             if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "get", [0 => "role"], "method", false, false, false, 24), "admin"))) {
                 // line 25
-                echo "                    <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=administration\">Administration</a></li>
+                echo "                        <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=administration\">Administration</a></li>
                     ";
             }
             // line 27
@@ -119,43 +119,40 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
             </button>
             <div id=\"navbarContent\" class=\"collapse navbar-collapse menu_dir\">
                 <ul class=\"navbar-nav\">
-                    <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=register\">Inscription</a></li>
-                    <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=login\">Connexion</a></li>
+                    <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=register\">Inscription</a></li>
+                    <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=login\">Connexion</a></li>
                 </ul>
             </div>
         </nav>
     ";
         }
-        // line 60
-        echo " 
-";
-        // line 77
+        // line 43
         echo "    ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["allArticles"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 78
-            echo "        <article class=\" card card_home_center color_article\" style=\"background-color: #cfd3ce; border: none;\">
+            // line 44
+            echo "        <article class=\"card card_home_center color_article\" style=\"background-color: #cfd3ce; border: none;\">
             <div class=\"card_home_border card-body card_home_width card_home_color\">
                 <h2 class=\"card-title h2\">";
-            // line 80
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getTitle", [], "method", false, false, false, 80), "html", null, true);
+            // line 46
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getTitle", [], "method", false, false, false, 46), "html", null, true);
             echo "</h2>
                 <p class=\"card-text\">";
-            // line 81
-            echo twig_escape_filter($this->env, twig_striptags(twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "method", false, false, false, 81), 0, 50)), "html", null, true);
+            // line 47
+            echo twig_escape_filter($this->env, twig_striptags(twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getContent", [], "method", false, false, false, 47), 0, 50)), "html", null, true);
             echo "</p>
-                <a href=\"../public/index.php?route=article&articleId= ";
-            // line 82
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getId", [], "method", false, false, false, 82), "html", null, true);
-            echo " \">lire la suite...</a>
+                <a href=\"../public/index.php?route=article&articleId=";
+            // line 48
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getId", [], "method", false, false, false, 48), "html", null, true);
+            echo "\">lire la suite...</a>
                 <p class=\"card-text\">";
-            // line 83
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getAuthor", [], "method", false, false, false, 83), "html", null, true);
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getAuthor", [], "method", false, false, false, 49), "html", null, true);
             echo "</p>
                 <p class=\"card-text\">";
-            // line 84
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getCreatedAt", [], "method", false, false, false, 84), "html", null, true);
+            // line 50
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getCreatedAt", [], "method", false, false, false, 50), "html", null, true);
             echo "</p>
             </div>        
         </article>
@@ -179,7 +176,7 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
 
     public function getDebugInfo()
     {
-        return array (  158 => 84,  154 => 83,  150 => 82,  146 => 81,  142 => 80,  138 => 78,  133 => 77,  130 => 60,  116 => 31,  110 => 27,  106 => 25,  104 => 24,  94 => 16,  92 => 15,  86 => 12,  82 => 11,  78 => 10,  74 => 9,  70 => 8,  66 => 7,  62 => 6,  58 => 4,  54 => 3,  47 => 2,  36 => 1,);
+        return array (  155 => 50,  151 => 49,  147 => 48,  143 => 47,  139 => 46,  135 => 44,  130 => 43,  116 => 31,  110 => 27,  106 => 25,  104 => 24,  94 => 16,  92 => 15,  86 => 12,  82 => 11,  78 => 10,  74 => 9,  70 => 8,  66 => 7,  62 => 6,  58 => 4,  54 => 3,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -205,10 +202,10 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
             </button>
             <div id=\"navbarContent\" class=\"collapse navbar-collapse menu_dir\">
                 <ul class=\"navbar-nav\">
-                    <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=logout\">Déconnexion</a></li>
-                    <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=profile\">Profil</a></li>
+                    <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=logout\">Déconnexion</a></li>
+                    <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=profile\">Profil</a></li>
                     {% if session.get('role') == 'admin' %}
-                    <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=administration\">Administration</a></li>
+                        <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=administration\">Administration</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -220,59 +217,26 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
             </button>
             <div id=\"navbarContent\" class=\"collapse navbar-collapse menu_dir\">
                 <ul class=\"navbar-nav\">
-                    <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=register\">Inscription</a></li>
-                    <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=login\">Connexion</a></li>
+                    <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=register\">Inscription</a></li>
+                    <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=login\">Connexion</a></li>
                 </ul>
             </div>
         </nav>
     {% endif %}
-{# <?php
-{# if (\$this->session->get('pseudo')) {?>
-    <nav id=\"menu_dir\" class=\"col navbar navbar-expand-lg\">
-        <button id=\"button_menu\" class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarContent\">
-            <span class=\"button\">Menu</span>
-        </button>
-        <div id=\"navbarContent\" class=\"collapse navbar-collapse menu_dir\">
-            <ul class=\"navbar-nav\">
-                <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=logout\">Déconnexion</a></li>
-                <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=profile\">Profil</a></li>
-                <?php if(\$this->session->get('role') === 'admin') { ?>
-                <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=administration\">Administration</a></li>
-            </ul>
-        </div>
-                <?php } ?>
-    </nav>
-    <?php
-}  #} 
-{# else {
-    ?>
-    <nav id=\"menu_dir\" class=\"col navbar navbar-expand-lg\">
-        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarContent\">
-            <span class=\"button\">Menu</span>
-        </button>
-        <div id=\"navbarContent\" class=\"collapse navbar-collapse menu_dir\">
-            <ul class=\"navbar-nav\">
-                <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=register\">Inscription</a></li>
-                <li class=\"nav-item active\"><a class=\" nav-link bouton4\" href=\"../public/index.php?route=login\">Connexion</a></li>
-            </ul>
-        </div>
-    </nav>
-    <?php
-}
-?> #}
     {% for article in allArticles %}
-        <article class=\" card card_home_center color_article\" style=\"background-color: #cfd3ce; border: none;\">
+        <article class=\"card card_home_center color_article\" style=\"background-color: #cfd3ce; border: none;\">
             <div class=\"card_home_border card-body card_home_width card_home_color\">
                 <h2 class=\"card-title h2\">{{ article.getTitle() }}</h2>
-                <p class=\"card-text\">{{ article.content()|slice(0,50)|striptags }}</p>
-                <a href=\"../public/index.php?route=article&articleId= {{ article.getId() }} \">lire la suite...</a>
-                <p class=\"card-text\">{{ article.getAuthor()}}</p>
-                <p class=\"card-text\">{{article.getCreatedAt()}}</p>
+                <p class=\"card-text\">{{ article.getContent()|slice(0,50)|striptags }}</p>
+                <a href=\"../public/index.php?route=article&articleId={{ article.getId() }}\">lire la suite...</a>
+                <p class=\"card-text\">{{ article.getAuthor() }}</p>
+                <p class=\"card-text\">{{ article.getCreatedAt() }}</p>
             </div>        
         </article>
         <br>
     {% endfor %}
 {% endblock %}
+
 ", "home.html.twig", "C:\\wamp64\\www\\cours php\\projet5php\\templates\\home.html.twig");
     }
 }

@@ -1,5 +1,5 @@
 {% extends "base.html.twig" %}
-{% set title = 'Nouvel article' %}
+{% block title %}Modifier l'article{% endblock %}
 {% block tinymce_scripts %}
 <script>
     tinymce.init({
@@ -18,14 +18,14 @@
 </script>
 {% endblock %}
 {% block content %}
-{{ title }}
-<h3>Nouvel article</h3>
-<div> 
-    {% include 'form_article.html.twig' %}
-    <a href="../public/index.php">Retour à l'accueil</a>
-</div>
+    <h3>Editer un article</h3>
+    <div>
+        {% include 'form_article.html.twig' %}
+        <a href="../public/index.php">Retour à l'accueil</a>
+    </div>
 {% endblock %}
-{# <?php $this->title = "Nouvel article"; ?>
+
+{# <?php $this->title = "Modifier l'article"; ?>
 <script>
       tinymce.init({selector: '#contentAddArtticle',
         plugins: [
@@ -41,7 +41,7 @@
         },
         menubar: 'favs file edit view insert format tools table help'
       });</script>
-<h3>Nouvel article</h3>
+<h3>Editer un article</h3>
 <div>
     <?php require 'form_article.php';?>
     <a href="../public/index.php">Retour à l'accueil</a>
