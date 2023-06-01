@@ -1,12 +1,14 @@
 <?php
 
-namespace App\src\DAO;
+namespace App\DAO;
 
-use App\config\Parameter;
-use App\src\model\User;
+use config\Parameter;
+use App\model\User;
 
-class UserDAO extends DAO{
-    private function buildObject($row){
+class UserDAO extends DAO
+{
+    private function buildObject($row)
+    {
         $user = new User();
         $user->setId($row['id']);
         $user->setPseudo($row['pseudo']);
@@ -14,7 +16,8 @@ class UserDAO extends DAO{
         $user->setRole($row['name']);
         return $user;
     }
-    public function getUsers(){
+    public function getUsers()
+    {
         $sql = 'SELECT user.id, user.pseudo, user.createdAt, role.name FROM user INNER JOIN role ON user.role_id = role.id ORDER BY user.id DESC';
         $result = $this->createQuery($sql);
         $users = [];
@@ -25,7 +28,8 @@ class UserDAO extends DAO{
         $result->closeCursor();
         return $users;
     }
-    public function register(Parameter $post){
+    public function register(Parameter $post)
+    {
         $this->checkUser($post);
         $sql = 'INSERT INTO user (pseudo, password, createdAt, role_id) VALUES (?, ?, NOW(), ?)';
         $this->createQuery($sql, [$post->get('pseudo'), password_hash($post->get('password'), PASSWORD_BCRYPT), 2]);
@@ -46,11 +50,13 @@ class UserDAO extends DAO{
         $result = $data->fetch();
         return $result;
     }
-    public function updatePassword(Parameter $post, $pseudo){
+    public function updatePassword(Parameter $post, $pseudo) 
+    {
         $sql = 'UPDATE user SET password = ? WHERE pseudo = ?';
         $this->createQuery($sql, [password_hash($post->get('password'), PASSWORD_BCRYPT), $pseudo]);
     }
-    public function deleteAccount($pseudo){
+    public function deleteAccount($pseudo)
+    {
         $sql = 'DELETE FROM user WHERE pseudo = ?';
         $this->createQuery($sql, [$pseudo]);
     }

@@ -1,8 +1,10 @@
 <?php
 
-namespace App\src\model;
+namespace App\Model;
 
-use App\config\Request;
+use Config\Request;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 class View
 {
@@ -19,22 +21,33 @@ class View
 
     public function render($template, $data = [])
     {
-        $this->file = '../templates/'.$template.'.php';
-        $content  = $this->renderFile($this->file, $data);
-        $view = $this->renderFile('../templates/base.php', [
-            'title' => $this->title,
-            'content' => $content,
-            'session' => $this->session
+        $loader = new FilesystemLoader( '../templates');
+        $twig = new Environment($loader, [
+            'cache' => '../templates/tmp',
+            'debug' => true
         ]);
-        echo $view;
+        $twig->addExtension(new \Twig\Extension\DebugExtension());
+        $data['session']= $this->session;
+        echo $twig->render($template, $data);
+        die;
+        // $this->file = '../templates/'.$template.'.php';
+        // $content  = $this->renderFile($this->file, $data);
+        // $view = $this->renderFile(
+        //     '../templates/base.php', [
+        //     'title' => $this->title,
+        //     'content' => $content,
+        //     'session' => $this->session
+        //     ]
+        // );
+        // echo $view;
     }
 
     private function renderFile($file, $data)
     {
-        if(file_exists($file)){
+        if(file_exists($file)) {
             extract($data);
             ob_start();
-            require $file;
+            include $file;
             return ob_get_clean();
         }
         header('Location: index.php?route=notFound');

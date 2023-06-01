@@ -1,16 +1,19 @@
 <?php
 
-namespace App\src\controller;
+namespace App\Controller;
 
-use App\config\Request;
-use App\src\constraint\Validation;
-use App\src\DAO\ArticleDAO;
-use App\src\DAO\CommentDAO;
-use App\src\DAO\UserDAO;
-use App\src\model\View;
+
+
+use Config\Request;
+use App\Constraint\Validation;
+use App\DAO\ArticleDAO;
+use App\DAO\CommentDAO;
+use App\DAO\UserDAO;
+use App\Model\View;
 
 abstract class Controller
 {
+    
     protected $articleDAO;
     protected $commentDAO;
     protected $userDAO;
