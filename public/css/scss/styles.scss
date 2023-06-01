@@ -1,7 +1,16 @@
-body{
+*{
     margin: 0;
     padding: 0;
 }
-h1{
-    color: red;
+header{
+    background-color: #9babb8;
+}
+section{
+    background-color: #eee3cb;
+}
+h1,h2{
+    text-align: center;
+}
+#color_body{
+    background-color: #D7C0AE;
 }
