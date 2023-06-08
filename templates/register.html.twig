@@ -1,6 +1,6 @@
-{% set title = "Inscription" %}
-{% block title %}{{ title }}{% endblock %}
-
+{% extends "base.html.twig" %}
+{% block title %}Inscription{% endblock %}
+{% block content %}
 <h3>Inscription</h3>
 <div>
     <form method="post" action="../public/index.php?route=register">
@@ -14,6 +14,8 @@
     </form>
     <a href="../public/index.php">Retour à l'accueil</a>
 </div>
+{% endblock %}
+
 {# <?php $this->title = "Inscription"; ?>
 <h3>Inscription</h3>
 <div>
