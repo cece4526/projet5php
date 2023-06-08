@@ -22,7 +22,4 @@ class Constraint
             return '<p>Le champ '.$name.' doit contenir au maximum '.$maxSize.' caractères</p>';
         }
     }
-    public function contentMaj($name, $value)
-    {
-    }
 }
