@@ -2,11 +2,11 @@
 {% block title %}Article{% endblock %}
 {% block content %}
 <div class="text-center"><a class="margin bouton4" href="../public/index.php">Accueil</a></div>
-<article class="card_home_border card_home_width card_home_color">
-    <h2>{{ article.getTitle() }}</h2>
-    <p>{{ article.getContent()|striptags }}</p>
-    <p>{{ article.getAuthor() }}</p>
-    <p>{{ article.getCreatedAt() }}</p>
+<article class="card card_home_center color_article" style="background-color: #cfd3ce; border: none;">
+    <h2>{{ article.getTitle()|raw }}</h2>
+    <p class="text_content">{{ article.getContent()|striptags('<p><b>')|raw }}</p>
+    <p class="card_end">{{ article.getAuthor()|raw }}</p>
+    <p class="card_end">{{ article.getCreatedAt() }}</p>
 </article>
 {% if session.get('role') == 'admin' %}
 <div class="actions">
@@ -15,7 +15,7 @@
 </div>
 {% endif %}
 
-<div id="comments" class="text-left" style="margin-left: 50px;">
+<div id="comment_section" class="card" >
     {% if session.get('role') is not null %}
     <h3>Ajouter un commentaire</h3>
     {% include 'form_comment.html.twig' %}
@@ -23,9 +23,9 @@
     <h3>Commentaires</h3>
     {% for comment in allComments %}
     {% if comment.getStatus() == 1 and comment.isFlag() == 0 %}
-    <div class="card_home_border card_home_color">
-        <h4>{{ comment.getAuthor() }}</h4>
-        <p>{{ comment.getContent() }}</p>
+    <div class="comment_content text_content" style="background-color: #cfd3ce; border: none;">
+        <h4>{{ comment.getPseudo()|raw|striptags }}</h4>
+        <p>{{ comment.getContent()|raw|striptags }}</p>
         <p>Posté le {{ comment.getCreatedAt() }}</p>
         {% if comment.isFlag() %}
         {% endif %}

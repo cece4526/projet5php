@@ -30,8 +30,8 @@
                 {% for article in articles %}
                     <tr>
                         <td scope="row">{{ article.getId() }}</td>
-                        <td scope="row">{{ article.getTitle() }}</td>
-                        <td scope="row">{{ article.getContent()|slice(0, 25)|striptags }}</td>
+                        <td scope="row">{{ article.getTitle()|raw }}</td>
+                        <td scope="row">{{ article.getContent()|slice(0, 25)|striptags|raw }}</td>
                         <td scope="row">{{ article.getAuthor() }}</td>
                         <td scope="row">{{ article.getCreatedAt() }}</td>
                         <td scope="row">
@@ -54,8 +54,8 @@
                 {% for comment in comments %}
                     <tr>
                         <td scope="row">{{ comment.getId() }}</td>
-                        <td scope="row">{{ comment.getPseudo() }}</td>
-                        <td scope="row">{{ comment.getContent()|slice(0, 25) }}</td>
+                        <td scope="row">{{ comment.getPseudo()|raw|striptags }}</td>
+                        <td scope="row">{{ comment.getContent()|slice(0, 25)|raw|striptags }}</td>
                         <td scope="row">{{ comment.getCreatedAt() }}</td>
                         <td scope="row">
                             <a href="../public/index.php?route=unflagComment&commentId={{ comment.getId() }}">Désignaler le commentaire</a>
@@ -77,8 +77,8 @@
                 {% for comment in statusComments %}
                     <tr>
                         <td scope="row">{{ comment.getId() }}</td>
-                        <td scope="row">{{ comment.getPseudo() }}</td>
-                        <td scope="row">{{ comment.getContent()|slice(0, 25) }}</td>
+                        <td scope="row">{{ comment.getPseudo()|raw|striptags }}</td>
+                        <td scope="row">{{ comment.getContent()|slice(0, 25)|raw|striptags }}</td>
                         <td scope="row">{{ comment.getCreatedAt() }}</td>
                         <td scope="row">
                             <a href="../public/index.php?route=validateComment&commentId={{ comment.getId() }}">Valider le commentaire</a>
@@ -100,7 +100,7 @@
                 {% for user in users %}
                     <tr>
                         <td scope="row">{{ user.getId() }}</td>
-                        <td scope="row">{{ user.getPseudo() }}</td>
+                        <td scope="row">{{ user.getPseudo()|raw|striptags }}</td>
                         <td scope="row">Créé le : {{ user.getCreatedAt() }}</td>
                         <td scope="row">{{ user.getRole() }}</td>
                         {% if user.getRole() == 'admin' %}

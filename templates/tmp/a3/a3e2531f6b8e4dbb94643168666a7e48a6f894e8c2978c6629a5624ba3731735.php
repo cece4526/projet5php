@@ -56,20 +56,20 @@ class __TwigTemplate_70beb8b5a14ed7ca83a02dea62a78b6f0955ddb147ad58a99c8bd6eb2c8
         $macros = $this->macros;
         // line 4
         echo "<div class=\"text-center\"><a class=\"margin bouton4\" href=\"../public/index.php\">Accueil</a></div>
-<article class=\"card_home_border card_home_width card_home_color\">
+<article class=\"card card_home_center color_article\" style=\"background-color: #cfd3ce; border: none;\">
     <h2>";
         // line 6
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "getTitle", [], "method", false, false, false, 6), "html", null, true);
+        echo twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "getTitle", [], "method", false, false, false, 6);
         echo "</h2>
-    <p>";
+    <p class=\"text_content\">";
         // line 7
-        echo twig_escape_filter($this->env, twig_striptags(twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "getContent", [], "method", false, false, false, 7)), "html", null, true);
+        echo twig_striptags(twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "getContent", [], "method", false, false, false, 7), "<p><b>");
         echo "</p>
-    <p>";
+    <p class=\"card_end\">";
         // line 8
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "getAuthor", [], "method", false, false, false, 8), "html", null, true);
+        echo twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "getAuthor", [], "method", false, false, false, 8);
         echo "</p>
-    <p>";
+    <p class=\"card_end\">";
         // line 9
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "getCreatedAt", [], "method", false, false, false, 9), "html", null, true);
         echo "</p>
@@ -92,7 +92,7 @@ class __TwigTemplate_70beb8b5a14ed7ca83a02dea62a78b6f0955ddb147ad58a99c8bd6eb2c8
         }
         // line 17
         echo "
-<div id=\"comments\" class=\"text-left\" style=\"margin-left: 50px;\">
+<div id=\"comment_section\" class=\"card\" >
     ";
         // line 19
         if ( !(null === twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "get", [0 => "role"], "method", false, false, false, 19))) {
@@ -115,14 +115,14 @@ class __TwigTemplate_70beb8b5a14ed7ca83a02dea62a78b6f0955ddb147ad58a99c8bd6eb2c8
             echo "    ";
             if (((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["comment"], "getStatus", [], "method", false, false, false, 25), 1)) && (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["comment"], "isFlag", [], "method", false, false, false, 25), 0)))) {
                 // line 26
-                echo "    <div class=\"card_home_border card_home_color\">
+                echo "    <div class=\"comment_content text_content\" style=\"background-color: #cfd3ce; border: none;\">
         <h4>";
                 // line 27
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getAuthor", [], "method", false, false, false, 27), "html", null, true);
+                echo twig_escape_filter($this->env, twig_striptags(twig_get_attribute($this->env, $this->source, $context["comment"], "getPseudo", [], "method", false, false, false, 27)), "html", null, true);
                 echo "</h4>
         <p>";
                 // line 28
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getContent", [], "method", false, false, false, 28), "html", null, true);
+                echo twig_escape_filter($this->env, twig_striptags(twig_get_attribute($this->env, $this->source, $context["comment"], "getContent", [], "method", false, false, false, 28)), "html", null, true);
                 echo "</p>
         <p>Posté le ";
                 // line 29
@@ -171,11 +171,11 @@ class __TwigTemplate_70beb8b5a14ed7ca83a02dea62a78b6f0955ddb147ad58a99c8bd6eb2c8
 {% block title %}Article{% endblock %}
 {% block content %}
 <div class=\"text-center\"><a class=\"margin bouton4\" href=\"../public/index.php\">Accueil</a></div>
-<article class=\"card_home_border card_home_width card_home_color\">
-    <h2>{{ article.getTitle() }}</h2>
-    <p>{{ article.getContent()|striptags }}</p>
-    <p>{{ article.getAuthor() }}</p>
-    <p>{{ article.getCreatedAt() }}</p>
+<article class=\"card card_home_center color_article\" style=\"background-color: #cfd3ce; border: none;\">
+    <h2>{{ article.getTitle()|raw }}</h2>
+    <p class=\"text_content\">{{ article.getContent()|striptags('<p><b>')|raw }}</p>
+    <p class=\"card_end\">{{ article.getAuthor()|raw }}</p>
+    <p class=\"card_end\">{{ article.getCreatedAt() }}</p>
 </article>
 {% if session.get('role') == 'admin' %}
 <div class=\"actions\">
@@ -184,7 +184,7 @@ class __TwigTemplate_70beb8b5a14ed7ca83a02dea62a78b6f0955ddb147ad58a99c8bd6eb2c8
 </div>
 {% endif %}
 
-<div id=\"comments\" class=\"text-left\" style=\"margin-left: 50px;\">
+<div id=\"comment_section\" class=\"card\" >
     {% if session.get('role') is not null %}
     <h3>Ajouter un commentaire</h3>
     {% include 'form_comment.html.twig' %}
@@ -192,9 +192,9 @@ class __TwigTemplate_70beb8b5a14ed7ca83a02dea62a78b6f0955ddb147ad58a99c8bd6eb2c8
     <h3>Commentaires</h3>
     {% for comment in allComments %}
     {% if comment.getStatus() == 1 and comment.isFlag() == 0 %}
-    <div class=\"card_home_border card_home_color\">
-        <h4>{{ comment.getAuthor() }}</h4>
-        <p>{{ comment.getContent() }}</p>
+    <div class=\"comment_content text_content\" style=\"background-color: #cfd3ce; border: none;\">
+        <h4>{{ comment.getPseudo()|raw|striptags }}</h4>
+        <p>{{ comment.getContent()|raw|striptags }}</p>
         <p>Posté le {{ comment.getCreatedAt() }}</p>
         {% if comment.isFlag() %}
         {% endif %}

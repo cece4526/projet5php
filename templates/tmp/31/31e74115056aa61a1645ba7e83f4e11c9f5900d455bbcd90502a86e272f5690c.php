@@ -97,11 +97,11 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
             <div class=\"card_home_border card-body card_home_width card_home_color\">
                 <h2 class=\"card-title h2\">";
             // line 18
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getTitle", [], "method", false, false, false, 18), "html", null, true);
+            echo twig_get_attribute($this->env, $this->source, $context["article"], "getTitle", [], "method", false, false, false, 18);
             echo "</h2>
                 <p class=\"card-text\">";
             // line 19
-            echo twig_escape_filter($this->env, twig_striptags(twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getContent", [], "method", false, false, false, 19), 0, 50)), "html", null, true);
+            echo twig_striptags(twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getContent", [], "method", false, false, false, 19), 0, 50));
             echo "</p>
                 <a href=\"../public/index.php?route=article&articleId=";
             // line 20
@@ -109,7 +109,7 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
             echo "\">lire la suite...</a>
                 <p class=\"card-text\">";
             // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getAuthor", [], "method", false, false, false, 21), "html", null, true);
+            echo twig_get_attribute($this->env, $this->source, $context["article"], "getAuthor", [], "method", false, false, false, 21);
             echo "</p>
                 <p class=\"card-text\">";
             // line 22
@@ -159,10 +159,10 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
     {% for article in allArticles %}
         <article class=\"card card_home_center color_article\" style=\"background-color: #cfd3ce; border: none;\">
             <div class=\"card_home_border card-body card_home_width card_home_color\">
-                <h2 class=\"card-title h2\">{{ article.getTitle() }}</h2>
-                <p class=\"card-text\">{{ article.getContent()|slice(0,50)|striptags }}</p>
+                <h2 class=\"card-title h2\">{{ article.getTitle()|raw }}</h2>
+                <p class=\"card-text\">{{ article.getContent()|slice(0,50)|striptags|raw }}</p>
                 <a href=\"../public/index.php?route=article&articleId={{ article.getId() }}\">lire la suite...</a>
-                <p class=\"card-text\">{{ article.getAuthor() }}</p>
+                <p class=\"card-text\">{{ article.getAuthor()|raw }}</p>
                 <p class=\"card-text\">{{ article.getCreatedAt() }}</p>
             </div>        
         </article>

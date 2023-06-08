@@ -15,10 +15,10 @@
     {% for article in allArticles %}
         <article class="card card_home_center color_article" style="background-color: #cfd3ce; border: none;">
             <div class="card_home_border card-body card_home_width card_home_color">
-                <h2 class="card-title h2">{{ article.getTitle() }}</h2>
-                <p class="card-text">{{ article.getContent()|slice(0,50)|striptags }}</p>
+                <h2 class="card-title h2">{{ article.getTitle()|raw }}</h2>
+                <p class="card-text">{{ article.getContent()|slice(0,50)|striptags|raw }}</p>
                 <a href="../public/index.php?route=article&articleId={{ article.getId() }}">lire la suite...</a>
-                <p class="card-text">{{ article.getAuthor() }}</p>
+                <p class="card-text">{{ article.getAuthor()|raw }}</p>
                 <p class="card-text">{{ article.getCreatedAt() }}</p>
             </div>        
         </article>

@@ -113,20 +113,6 @@ class __TwigTemplate_2a26a129f25310ccebba82b970f37a0c475ae623d8a43dd1c1ce8b4ea26
     <a href=\"../public/index.php\">Retour à l'accueil</a>
 </div>
 {% endblock %}
-{# <?php \$this->title = \"Connexion\"; ?>
-<script type=\"module\" src=\"js/main.js\"></script>
-<h3>Connexion</h3>
-<?php echo \$this->session->show('error_login'); ?>
-<div>
-    <form method=\"post\" action=\"../public/index.php?route=login\">
-        <label for=\"pseudo\">Pseudo</label><br>
-        <input type=\"text\" id=\"login\" name=\"pseudo\" value=\"<?php echo isset(\$post) ? htmlspecialchars(\$post->get('pseudo')): ''; ?>\"><br>
-        <label for=\"password\">Mot de passe</label><br>
-        <input type=\"password\" id=\"password\" name=\"password\"><br>
-        <input type=\"submit\" value=\"Connexion\" id=\"submit\" name=\"submit\">
-    </form>
-    <a href=\"../public/index.php\">Retour à l'accueil</a>
-</div> #}
 ", "login.html.twig", "C:\\wamp64\\www\\cours php\\projet5php\\templates\\login.html.twig");
     }
 }
