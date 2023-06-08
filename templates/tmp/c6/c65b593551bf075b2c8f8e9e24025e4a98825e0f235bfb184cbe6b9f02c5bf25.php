@@ -144,29 +144,6 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
     {% endblock %}
 </body>
 </html>
-{# <!DOCTYPE html>
-<html lang=\"fr\">
-<head>
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>
-    <meta charset=\"UTF-8\" />
-    <title>{% block title %}{% endblock %}</title>
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"css/styles.css\">
-    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
-    <script src=\"https://cdn.tiny.cloud/1/iab8thdvc4jwel2j40erfp5seig46wsvno8047wc8q1o6h91/tinymce/6/tinymce.min.js\" referrerpolicy=\"origin\"></script>
-</head>
-<body id=\"color_body\">
-    <header>
-      <h1>Jean Forteroche</h1>
-      <h2>Billet simple pour l'Alaska</h2>
-    </header>
-    <section class=\"container\">
-        {% block  content %}{% endblock %}
-    </section>
-    <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
-    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
-    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
-</body>
-</html> #}
 ", "base.html.twig", "C:\\wamp64\\www\\cours php\\projet5php\\templates\\base.html.twig");
     }
 }

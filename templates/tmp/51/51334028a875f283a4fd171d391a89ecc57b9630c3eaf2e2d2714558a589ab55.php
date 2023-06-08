@@ -58,40 +58,39 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
         echo "    <div class=\"center\">
         <div class=\"content_center\">
             <h3>Administration</h3>
-            <a class=\"margin bouton4\" href=\"../public/index.php\">Accueil</a>
             <div class=\"message\">
                 <p class=\"message_text\">
                     ";
+        // line 9
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "add_article"], "method", false, false, false, 9), "html", null, true);
+        echo "
+                    ";
         // line 10
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "add_article"], "method", false, false, false, 10), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "edit_article"], "method", false, false, false, 10), "html", null, true);
         echo "
                     ";
         // line 11
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "edit_article"], "method", false, false, false, 11), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "delete_article"], "method", false, false, false, 11), "html", null, true);
         echo "
                     ";
         // line 12
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "delete_article"], "method", false, false, false, 12), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "add_comment"], "method", false, false, false, 12), "html", null, true);
         echo "
                     ";
         // line 13
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "add_comment"], "method", false, false, false, 13), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "flag_comment"], "method", false, false, false, 13), "html", null, true);
         echo "
                     ";
         // line 14
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "flag_comment"], "method", false, false, false, 14), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "delete_comment"], "method", false, false, false, 14), "html", null, true);
         echo "
                     ";
         // line 15
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "delete_comment"], "method", false, false, false, 15), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "delete_user"], "method", false, false, false, 15), "html", null, true);
         echo "
                     ";
         // line 16
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "delete_user"], "method", false, false, false, 16), "html", null, true);
-        echo "
-                    ";
-        // line 17
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "validate_comment"], "method", false, false, false, 17), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "show", [0 => "validate_comment"], "method", false, false, false, 16), "html", null, true);
         echo "
                 </p>
             </div>
@@ -107,40 +106,40 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
                     <th scope=\"col\">Actions</th>
                 </tr>
                 ";
-        // line 31
+        // line 30
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["articles"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 32
+            // line 31
             echo "                    <tr>
                         <td scope=\"row\">";
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getId", [], "method", false, false, false, 32), "html", null, true);
+            echo "</td>
+                        <td scope=\"row\">";
             // line 33
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getId", [], "method", false, false, false, 33), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getTitle", [], "method", false, false, false, 33), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
             // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getTitle", [], "method", false, false, false, 34), "html", null, true);
+            echo twig_escape_filter($this->env, twig_striptags(twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getContent", [], "method", false, false, false, 34), 0, 25)), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
             // line 35
-            echo twig_escape_filter($this->env, twig_striptags(twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getContent", [], "method", false, false, false, 35), 0, 25)), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getAuthor", [], "method", false, false, false, 35), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
             // line 36
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getAuthor", [], "method", false, false, false, 36), "html", null, true);
-            echo "</td>
-                        <td scope=\"row\">";
-            // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getCreatedAt", [], "method", false, false, false, 37), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getCreatedAt", [], "method", false, false, false, 36), "html", null, true);
             echo "</td>
                         <td scope=\"row\">
                             <a href=\"../public/index.php?route=editArticle&articleId=";
-            // line 39
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getId", [], "method", false, false, false, 39), "html", null, true);
+            // line 38
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getId", [], "method", false, false, false, 38), "html", null, true);
             echo "\">Modifier</a>
                             <a href=\"../public/index.php?route=deleteArticle&articleId=";
-            // line 40
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getId", [], "method", false, false, false, 40), "html", null, true);
+            // line 39
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getId", [], "method", false, false, false, 39), "html", null, true);
             echo "\">Supprimer</a>
                         </td>
                     </tr>
@@ -149,7 +148,7 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 44
+        // line 43
         echo "            </table>
 
             <h2>Commentaires signalés</h2>
@@ -162,36 +161,36 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
                     <th scope=\"col\">Actions</th>
                 </tr>
                 ";
-        // line 55
+        // line 54
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["comments"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 56
+            // line 55
             echo "                    <tr>
                         <td scope=\"row\">";
+            // line 56
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 56), "html", null, true);
+            echo "</td>
+                        <td scope=\"row\">";
             // line 57
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 57), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getPseudo", [], "method", false, false, false, 57), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
             // line 58
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getPseudo", [], "method", false, false, false, 58), "html", null, true);
+            echo twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getContent", [], "method", false, false, false, 58), 0, 25), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
             // line 59
-            echo twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getContent", [], "method", false, false, false, 59), 0, 25), "html", null, true);
-            echo "</td>
-                        <td scope=\"row\">";
-            // line 60
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getCreatedAt", [], "method", false, false, false, 60), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getCreatedAt", [], "method", false, false, false, 59), "html", null, true);
             echo "</td>
                         <td scope=\"row\">
                             <a href=\"../public/index.php?route=unflagComment&commentId=";
-            // line 62
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 62), "html", null, true);
+            // line 61
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 61), "html", null, true);
             echo "\">Désignaler le commentaire</a>
                             <a href=\"../public/index.php?route=deleteComment&commentId=";
-            // line 63
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 63), "html", null, true);
+            // line 62
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 62), "html", null, true);
             echo "\">Supprimer le commentaire</a>
                         </td>
                     </tr>
@@ -200,7 +199,7 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 67
+        // line 66
         echo "            </table>
 
             <h2>Commentaires à valider</h2>
@@ -213,36 +212,36 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
                     <th scope=\"col\">Actions</th>
                 </tr>
                 ";
-        // line 78
+        // line 77
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["statusComments"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 79
+            // line 78
             echo "                    <tr>
                         <td scope=\"row\">";
+            // line 79
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 79), "html", null, true);
+            echo "</td>
+                        <td scope=\"row\">";
             // line 80
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 80), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getPseudo", [], "method", false, false, false, 80), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
             // line 81
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getPseudo", [], "method", false, false, false, 81), "html", null, true);
+            echo twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getContent", [], "method", false, false, false, 81), 0, 25), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
             // line 82
-            echo twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getContent", [], "method", false, false, false, 82), 0, 25), "html", null, true);
-            echo "</td>
-                        <td scope=\"row\">";
-            // line 83
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getCreatedAt", [], "method", false, false, false, 83), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getCreatedAt", [], "method", false, false, false, 82), "html", null, true);
             echo "</td>
                         <td scope=\"row\">
                             <a href=\"../public/index.php?route=validateComment&commentId=";
-            // line 85
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 85), "html", null, true);
+            // line 84
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 84), "html", null, true);
             echo "\">Valider le commentaire</a>
                             <a href=\"../public/index.php?route=deleteComment&commentId=";
-            // line 86
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 86), "html", null, true);
+            // line 85
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getId", [], "method", false, false, false, 85), "html", null, true);
             echo "\">Supprimer le commentaire</a>
                         </td>
                     </tr>
@@ -251,7 +250,7 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 90
+        // line 89
         echo "            </table>
 
             <h2>Utilisateurs</h2>
@@ -264,49 +263,49 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
                     <th scope=\"col\">Actions</th>
                 </tr>
                 ";
-        // line 101
+        // line 100
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["users"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-            // line 102
+            // line 101
             echo "                    <tr>
                         <td scope=\"row\">";
-            // line 103
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "getId", [], "method", false, false, false, 103), "html", null, true);
+            // line 102
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "getId", [], "method", false, false, false, 102), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
-            // line 104
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "getPseudo", [], "method", false, false, false, 104), "html", null, true);
+            // line 103
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "getPseudo", [], "method", false, false, false, 103), "html", null, true);
             echo "</td>
                         <td scope=\"row\">Créé le : ";
-            // line 105
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "getCreatedAt", [], "method", false, false, false, 105), "html", null, true);
+            // line 104
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "getCreatedAt", [], "method", false, false, false, 104), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
-            // line 106
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "getRole", [], "method", false, false, false, 106), "html", null, true);
+            // line 105
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "getRole", [], "method", false, false, false, 105), "html", null, true);
             echo "</td>
                         ";
-            // line 107
-            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["user"], "getRole", [], "method", false, false, false, 107), "admin"))) {
-                // line 108
+            // line 106
+            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["user"], "getRole", [], "method", false, false, false, 106), "admin"))) {
+                // line 107
                 echo "                            <td scope=\"row\">compte admin</td>
                         ";
             } else {
-                // line 110
+                // line 109
                 echo "                            <td scope=\"row\"><a href=\"../public/index.php?route=deleteUser&userId=";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "getId", [], "method", false, false, false, 110), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "getId", [], "method", false, false, false, 109), "html", null, true);
                 echo "\">Supprimer le compte</a></td>
                         ";
             }
-            // line 112
+            // line 111
             echo "                    </tr>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 114
+        // line 113
         echo "            </table>
             <a class=\"margin bouton4\" href=\"../public/index.php\">Accueil</a>
         </div>
@@ -326,7 +325,7 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
 
     public function getDebugInfo()
     {
-        return array (  310 => 114,  303 => 112,  297 => 110,  293 => 108,  291 => 107,  287 => 106,  283 => 105,  279 => 104,  275 => 103,  272 => 102,  268 => 101,  255 => 90,  245 => 86,  241 => 85,  236 => 83,  232 => 82,  228 => 81,  224 => 80,  221 => 79,  217 => 78,  204 => 67,  194 => 63,  190 => 62,  185 => 60,  181 => 59,  177 => 58,  173 => 57,  170 => 56,  166 => 55,  153 => 44,  143 => 40,  139 => 39,  134 => 37,  130 => 36,  126 => 35,  122 => 34,  118 => 33,  115 => 32,  111 => 31,  94 => 17,  90 => 16,  86 => 15,  82 => 14,  78 => 13,  74 => 12,  70 => 11,  66 => 10,  58 => 4,  54 => 3,  47 => 2,  36 => 1,);
+        return array (  309 => 113,  302 => 111,  296 => 109,  292 => 107,  290 => 106,  286 => 105,  282 => 104,  278 => 103,  274 => 102,  271 => 101,  267 => 100,  254 => 89,  244 => 85,  240 => 84,  235 => 82,  231 => 81,  227 => 80,  223 => 79,  220 => 78,  216 => 77,  203 => 66,  193 => 62,  189 => 61,  184 => 59,  180 => 58,  176 => 57,  172 => 56,  169 => 55,  165 => 54,  152 => 43,  142 => 39,  138 => 38,  133 => 36,  129 => 35,  125 => 34,  121 => 33,  117 => 32,  114 => 31,  110 => 30,  93 => 16,  89 => 15,  85 => 14,  81 => 13,  77 => 12,  73 => 11,  69 => 10,  65 => 9,  58 => 4,  54 => 3,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -337,7 +336,6 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
     <div class=\"center\">
         <div class=\"content_center\">
             <h3>Administration</h3>
-            <a class=\"margin bouton4\" href=\"../public/index.php\">Accueil</a>
             <div class=\"message\">
                 <p class=\"message_text\">
                     {{ session.show('add_article') }}

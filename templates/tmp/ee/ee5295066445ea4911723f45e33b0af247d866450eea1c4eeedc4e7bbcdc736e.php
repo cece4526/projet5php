@@ -44,7 +44,7 @@ class __TwigTemplate_a17dd7b66a151b0be4cca3a051a52955776aacbab5e0af4cdda3c6d0975
             <div id=\"navbarContent\" class=\"collapse navbar-collapse menu_dir\">
                 <ul class=\"navbar-nav\">
                     <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=logout\">Déconnexion</a></li>
-                    <li><a class=\"nav-item active\" href=\"../public/index.php\">Accueil</a></li>
+                    <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php\">Accueil</a></li>
                     <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=profile\">Profil</a></li>
                     ";
             // line 11
@@ -100,7 +100,7 @@ class __TwigTemplate_a17dd7b66a151b0be4cca3a051a52955776aacbab5e0af4cdda3c6d0975
             <div id=\"navbarContent\" class=\"collapse navbar-collapse menu_dir\">
                 <ul class=\"navbar-nav\">
                     <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=logout\">Déconnexion</a></li>
-                    <li><a class=\"nav-item active\" href=\"../public/index.php\">Accueil</a></li>
+                    <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php\">Accueil</a></li>
                     <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=profile\">Profil</a></li>
                     {% if session.get('role') == 'admin' %}
                         <li class=\"nav-item active\"><a class=\"nav-link bouton4\" href=\"../public/index.php?route=administration\">Administration</a></li>
