@@ -74,6 +74,37 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
         $this->displayBlock('tinymce_scripts', $context, $blocks);
         // line 27
         echo "</body>
+<!-- Footer -->
+<footer class=\"text-center text-lg-start bg-white text-muted\">
+  <!-- Section: Social media -->
+  <section class=\"d-flex justify-content-center justify-content-lg-between p-4 border-bottom\">
+    <!-- Left -->
+    <div class=\"me-5 d-none d-lg-block\">
+      <span>Rejoignez-nous sur les réseaux sociaux :</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href=\"\" class=\"me-4 link-secondary\">
+        <i class=\"fab fa-linkedin\"></i>
+      </a>
+      <a href=\"\" class=\"me-4 link-secondary\">
+        <i class=\"fab fa-github\">github</i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Copyright -->
+  <div class=\"text-center p-4\" style=\"background-color: rgba(0, 0, 0, 0.025);\">
+    © 2023 Copyright:
+    <a class=\"text-reset fw-bold\" href=\"https://mdbootstrap.com/\">créa-ced</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 </html>
 ";
     }
@@ -111,7 +142,7 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
 
     public function getDebugInfo()
     {
-        return array (  98 => 25,  94 => 24,  88 => 18,  82 => 6,  76 => 27,  74 => 24,  67 => 19,  65 => 18,  61 => 16,  59 => 15,  47 => 6,  40 => 1,);
+        return array (  129 => 25,  125 => 24,  119 => 18,  113 => 6,  76 => 27,  74 => 24,  67 => 19,  65 => 18,  61 => 16,  59 => 15,  47 => 6,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -143,6 +174,37 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
         
     {% endblock %}
 </body>
+<!-- Footer -->
+<footer class=\"text-center text-lg-start bg-white text-muted\">
+  <!-- Section: Social media -->
+  <section class=\"d-flex justify-content-center justify-content-lg-between p-4 border-bottom\">
+    <!-- Left -->
+    <div class=\"me-5 d-none d-lg-block\">
+      <span>Rejoignez-nous sur les réseaux sociaux :</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href=\"\" class=\"me-4 link-secondary\">
+        <i class=\"fab fa-linkedin\"></i>
+      </a>
+      <a href=\"\" class=\"me-4 link-secondary\">
+        <i class=\"fab fa-github\">github</i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Copyright -->
+  <div class=\"text-center p-4\" style=\"background-color: rgba(0, 0, 0, 0.025);\">
+    © 2023 Copyright:
+    <a class=\"text-reset fw-bold\" href=\"https://mdbootstrap.com/\">créa-ced</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 </html>
 ", "base.html.twig", "C:\\wamp64\\www\\cours php\\projet5php\\templates\\base.html.twig");
     }

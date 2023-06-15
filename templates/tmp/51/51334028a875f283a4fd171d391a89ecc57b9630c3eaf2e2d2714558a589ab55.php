@@ -173,11 +173,11 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
             echo "</td>
                         <td scope=\"row\">";
             // line 57
-            echo twig_get_attribute($this->env, $this->source, $context["comment"], "getPseudo", [], "method", false, false, false, 57);
+            echo twig_escape_filter($this->env, twig_striptags(twig_get_attribute($this->env, $this->source, $context["comment"], "getPseudo", [], "method", false, false, false, 57)), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
             // line 58
-            echo twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getContent", [], "method", false, false, false, 58), 0, 25);
+            echo twig_escape_filter($this->env, twig_striptags(twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getContent", [], "method", false, false, false, 58), 0, 25)), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
             // line 59
@@ -224,11 +224,11 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
             echo "</td>
                         <td scope=\"row\">";
             // line 80
-            echo twig_get_attribute($this->env, $this->source, $context["comment"], "getPseudo", [], "method", false, false, false, 80);
+            echo twig_escape_filter($this->env, twig_striptags(twig_get_attribute($this->env, $this->source, $context["comment"], "getPseudo", [], "method", false, false, false, 80)), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
             // line 81
-            echo twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getContent", [], "method", false, false, false, 81), 0, 25);
+            echo twig_escape_filter($this->env, twig_striptags(twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "getContent", [], "method", false, false, false, 81), 0, 25)), "html", null, true);
             echo "</td>
                         <td scope=\"row\">";
             // line 82
@@ -275,7 +275,7 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
             echo "</td>
                         <td scope=\"row\">";
             // line 103
-            echo twig_get_attribute($this->env, $this->source, $context["user"], "getPseudo", [], "method", false, false, false, 103);
+            echo twig_escape_filter($this->env, twig_striptags(twig_get_attribute($this->env, $this->source, $context["user"], "getPseudo", [], "method", false, false, false, 103)), "html", null, true);
             echo "</td>
                         <td scope=\"row\">Créé le : ";
             // line 104
@@ -386,8 +386,8 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
                 {% for comment in comments %}
                     <tr>
                         <td scope=\"row\">{{ comment.getId() }}</td>
-                        <td scope=\"row\">{{ comment.getPseudo()|raw }}</td>
-                        <td scope=\"row\">{{ comment.getContent()|slice(0, 25)|raw }}</td>
+                        <td scope=\"row\">{{ comment.getPseudo()|raw|striptags }}</td>
+                        <td scope=\"row\">{{ comment.getContent()|slice(0, 25)|raw|striptags }}</td>
                         <td scope=\"row\">{{ comment.getCreatedAt() }}</td>
                         <td scope=\"row\">
                             <a href=\"../public/index.php?route=unflagComment&commentId={{ comment.getId() }}\">Désignaler le commentaire</a>
@@ -409,8 +409,8 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
                 {% for comment in statusComments %}
                     <tr>
                         <td scope=\"row\">{{ comment.getId() }}</td>
-                        <td scope=\"row\">{{ comment.getPseudo()|raw }}</td>
-                        <td scope=\"row\">{{ comment.getContent()|slice(0, 25)|raw }}</td>
+                        <td scope=\"row\">{{ comment.getPseudo()|raw|striptags }}</td>
+                        <td scope=\"row\">{{ comment.getContent()|slice(0, 25)|raw|striptags }}</td>
                         <td scope=\"row\">{{ comment.getCreatedAt() }}</td>
                         <td scope=\"row\">
                             <a href=\"../public/index.php?route=validateComment&commentId={{ comment.getId() }}\">Valider le commentaire</a>
@@ -432,7 +432,7 @@ class __TwigTemplate_fc24a704c21b202545dae5463d327b641a0506faf3f69e13ea24c22561f
                 {% for user in users %}
                     <tr>
                         <td scope=\"row\">{{ user.getId() }}</td>
-                        <td scope=\"row\">{{ user.getPseudo()|raw }}</td>
+                        <td scope=\"row\">{{ user.getPseudo()|raw|striptags }}</td>
                         <td scope=\"row\">Créé le : {{ user.getCreatedAt() }}</td>
                         <td scope=\"row\">{{ user.getRole() }}</td>
                         {% if user.getRole() == 'admin' %}

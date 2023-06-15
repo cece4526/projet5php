@@ -24,23 +24,38 @@ class __TwigTemplate_cf6d6cccf1859e75e25ac0a6bcb518451fee7eb059cb0464f9d25acfbe8
 
         $this->source = $this->getSourceContext();
 
-        $this->parent = false;
-
         $this->blocks = [
             'title' => [$this, 'block_title'],
+            'content' => [$this, 'block_content'],
         ];
+    }
+
+    protected function doGetParent(array $context)
+    {
+        // line 1
+        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 1
-        $context["title"] = "Inscription";
-        // line 2
-        $this->displayBlock('title', $context, $blocks);
-        // line 3
-        echo "
-<h3>Inscription</h3>
+        $this->parent = $this->loadTemplate("base.html.twig", "register.html.twig", 1);
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        echo "Inscription";
+    }
+
+    // line 3
+    public function block_content($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        // line 4
+        echo "<h3>Inscription</h3>
 <div>
     <form method=\"post\" action=\"../public/index.php?route=register\">
         <label for=\"pseudo\">Pseudo</label><br>
@@ -65,13 +80,6 @@ class __TwigTemplate_cf6d6cccf1859e75e25ac0a6bcb518451fee7eb059cb0464f9d25acfbe8
 ";
     }
 
-    // line 2
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        echo twig_escape_filter($this->env, ($context["title"] ?? null), "html", null, true);
-    }
-
     public function getTemplateName()
     {
         return "register.html.twig";
@@ -84,14 +92,14 @@ class __TwigTemplate_cf6d6cccf1859e75e25ac0a6bcb518451fee7eb059cb0464f9d25acfbe8
 
     public function getDebugInfo()
     {
-        return array (  69 => 2,  59 => 12,  53 => 9,  49 => 8,  42 => 3,  40 => 2,  38 => 1,);
+        return array (  74 => 12,  68 => 9,  64 => 8,  58 => 4,  54 => 3,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% set title = \"Inscription\" %}
-{% block title %}{{ title }}{% endblock %}
-
+        return new Source("{% extends \"base.html.twig\" %}
+{% block title %}Inscription{% endblock %}
+{% block content %}
 <h3>Inscription</h3>
 <div>
     <form method=\"post\" action=\"../public/index.php?route=register\">
@@ -105,6 +113,8 @@ class __TwigTemplate_cf6d6cccf1859e75e25ac0a6bcb518451fee7eb059cb0464f9d25acfbe8
     </form>
     <a href=\"../public/index.php\">Retour à l'accueil</a>
 </div>
+{% endblock %}
+
 {# <?php \$this->title = \"Inscription\"; ?>
 <h3>Inscription</h3>
 <div>
