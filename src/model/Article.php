@@ -30,6 +30,11 @@ class Article
     private $createdAt;
 
     /**
+     * @var \DateTime
+     */
+    private $updateAt;
+
+    /**
      * @return int
      */
     public function getId(): ?int
@@ -107,5 +112,21 @@ class Article
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setUpdateAt($updateAt)
+    {
+        $this->updateAt = $updateAt;
     }
 }

@@ -49,30 +49,31 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
     <link rel=\"stylesheet\" type=\"text/css\" href=\"css/styles.css\">
     <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
     <script src=\"https://cdn.tiny.cloud/1/iab8thdvc4jwel2j40erfp5seig46wsvno8047wc8q1o6h91/tinymce/6/tinymce.min.js\" referrerpolicy=\"origin\"></script>
+    <script src=\"https://kit.fontawesome.com/6f5403fd0e.js\" crossorigin=\"anonymous\"></script>
 </head>
 <body id=\"color_body\">
     <header>
         <h1>Dupré Cédric</h1>
         <h2>la passion du dévellopement php/symfony</h2>
         ";
-        // line 15
-        $this->loadTemplate("menu.html.twig", "base.html.twig", 15)->display($context);
         // line 16
+        $this->loadTemplate("menu.html.twig", "base.html.twig", 16)->display($context);
+        // line 17
         echo "    </header>
     <section class=\"container\">
         ";
-        // line 18
-        $this->displayBlock('content', $context, $blocks);
         // line 19
+        $this->displayBlock('content', $context, $blocks);
+        // line 20
         echo "    </section>
     <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
 
     ";
-        // line 24
+        // line 25
         $this->displayBlock('tinymce_scripts', $context, $blocks);
-        // line 27
+        // line 28
         echo "</body>
 <!-- Footer -->
 <footer class=\"text-center text-lg-start bg-white text-muted\">
@@ -115,17 +116,17 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
         $macros = $this->macros;
     }
 
-    // line 18
+    // line 19
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 24
+    // line 25
     public function block_tinymce_scripts($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 25
+        // line 26
         echo "        
     ";
     }
@@ -142,7 +143,7 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
 
     public function getDebugInfo()
     {
-        return array (  129 => 25,  125 => 24,  119 => 18,  113 => 6,  76 => 27,  74 => 24,  67 => 19,  65 => 18,  61 => 16,  59 => 15,  47 => 6,  40 => 1,);
+        return array (  130 => 26,  126 => 25,  120 => 19,  114 => 6,  77 => 28,  75 => 25,  68 => 20,  66 => 19,  62 => 17,  60 => 16,  47 => 6,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -156,6 +157,7 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
     <link rel=\"stylesheet\" type=\"text/css\" href=\"css/styles.css\">
     <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
     <script src=\"https://cdn.tiny.cloud/1/iab8thdvc4jwel2j40erfp5seig46wsvno8047wc8q1o6h91/tinymce/6/tinymce.min.js\" referrerpolicy=\"origin\"></script>
+    <script src=\"https://kit.fontawesome.com/6f5403fd0e.js\" crossorigin=\"anonymous\"></script>
 </head>
 <body id=\"color_body\">
     <header>

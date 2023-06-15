@@ -2,30 +2,38 @@
     margin: 0;
     padding: 0;
 }
+
 header {
     background-color: #9babb8;
 }
+
 section {
     background-color: #eee3cb;
 }
-h1,h2 {
+
+h1, h2 {
     text-align: center;
 }
+
 #color_body {
     background-color: #d7c0ae;
 }
+
 .text_content {
     padding: 3%;
 }
+
 #comment_section {
     background-color: #eee3cb;
     border: none;
 }
+
 .comment_content {
     padding: 1%;
     border: solid 1px black;
     border-radius: 10px;
 }
+
 .card_end {
     text-align: end;
     margin-right: 1%;

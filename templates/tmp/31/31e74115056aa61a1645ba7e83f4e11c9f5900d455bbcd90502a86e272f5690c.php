@@ -111,11 +111,23 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
             // line 21
             echo twig_get_attribute($this->env, $this->source, $context["article"], "getAuthor", [], "method", false, false, false, 21);
             echo "</p>
-                <p class=\"card-text\">";
+                ";
             // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getCreatedAt", [], "method", false, false, false, 22), "html", null, true);
-            echo "</p>
-            </div>        
+            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "getUpdateAt", [], "method", false, false, false, 22), null))) {
+                // line 23
+                echo "                    <p class=\"card-text\">";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getCreatedAt", [], "method", false, false, false, 23), "html", null, true);
+                echo "</p>
+                ";
+            } else {
+                // line 25
+                echo "                    <p class=\"card-text\">";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "getUpdateAt", [], "method", false, false, false, 25), "html", null, true);
+                echo "</p>
+                ";
+            }
+            // line 27
+            echo "            </div>        
         </article>
         <br>
     ";
@@ -137,7 +149,7 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
 
     public function getDebugInfo()
     {
-        return array (  116 => 22,  112 => 21,  108 => 20,  104 => 19,  100 => 18,  96 => 16,  92 => 15,  86 => 12,  82 => 11,  78 => 10,  74 => 9,  70 => 8,  66 => 7,  62 => 6,  58 => 4,  54 => 3,  47 => 2,  36 => 1,);
+        return array (  130 => 27,  124 => 25,  118 => 23,  116 => 22,  112 => 21,  108 => 20,  104 => 19,  100 => 18,  96 => 16,  92 => 15,  86 => 12,  82 => 11,  78 => 10,  74 => 9,  70 => 8,  66 => 7,  62 => 6,  58 => 4,  54 => 3,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -163,7 +175,11 @@ class __TwigTemplate_a0a602da772fe4a41d624007591b021417ea01049f71f1c1f9ee70f11b5
                 <p class=\"card-text\">{{ article.getContent()|slice(0,50)|striptags|raw }}</p>
                 <a href=\"../public/index.php?route=article&articleId={{ article.getId() }}\">lire la suite...</a>
                 <p class=\"card-text\">{{ article.getAuthor()|raw }}</p>
-                <p class=\"card-text\">{{ article.getCreatedAt() }}</p>
+                {% if article.getUpdateAt() == NULL %}
+                    <p class=\"card-text\">{{ article.getCreatedAt() }}</p>
+                {% else %}
+                    <p class=\"card-text\">{{ article.getUpdateAt() }}</p>
+                {% endif %}
             </div>        
         </article>
         <br>
