@@ -2,9 +2,29 @@
     margin: 0;
     padding: 0;
 }
-
 header {
     background-color: #9babb8;
+    >#flex_header {
+        display: flex;
+        >img {
+            width: 35%;
+        }
+        >#block_titre {
+            padding: 5% 0 5% 0;
+            width: 65%;
+        }
+        @media screen and (max-width: 900px) {
+            img {
+                display: none;
+            }
+
+            #block_titre {
+                padding: 5% !important ; 
+                width: 100% !important ;
+            }
+        }
+        
+    }
 }
 
 section {

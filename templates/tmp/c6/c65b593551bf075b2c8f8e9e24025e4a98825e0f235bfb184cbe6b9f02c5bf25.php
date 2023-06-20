@@ -53,27 +53,32 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
 </head>
 <body id=\"color_body\">
     <header>
-        <h1>Dupré Cédric</h1>
-        <h2>la passion du dévellopement php/symfony</h2>
+      <div id=\"flex_header\">
+          <img src=\"images/logo_crea-ced.png\" alt=\"logo de l enntreprise créa-ced\">
+          <div id=\"block_titre\">
+            <h1>Dupré Cédric</h1>
+            <h2>la passion du dévellopement php/symfony</h2>
+          </div>
+      </div>
         ";
-        // line 16
-        $this->loadTemplate("menu.html.twig", "base.html.twig", 16)->display($context);
-        // line 17
+        // line 21
+        $this->loadTemplate("menu.html.twig", "base.html.twig", 21)->display($context);
+        // line 22
         echo "    </header>
     <section class=\"container\">
         ";
-        // line 19
+        // line 24
         $this->displayBlock('content', $context, $blocks);
-        // line 20
+        // line 25
         echo "    </section>
     <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
 
     ";
-        // line 25
+        // line 30
         $this->displayBlock('tinymce_scripts', $context, $blocks);
-        // line 28
+        // line 33
         echo "</body>
 <!-- Footer -->
 <footer class=\"text-center text-lg-start bg-white text-muted\">
@@ -116,17 +121,17 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
         $macros = $this->macros;
     }
 
-    // line 19
+    // line 24
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 25
+    // line 30
     public function block_tinymce_scripts($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 26
+        // line 31
         echo "        
     ";
     }
@@ -143,7 +148,7 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
 
     public function getDebugInfo()
     {
-        return array (  130 => 26,  126 => 25,  120 => 19,  114 => 6,  77 => 28,  75 => 25,  68 => 20,  66 => 19,  62 => 17,  60 => 16,  47 => 6,  40 => 1,);
+        return array (  135 => 31,  131 => 30,  125 => 24,  119 => 6,  82 => 33,  80 => 30,  73 => 25,  71 => 24,  67 => 22,  65 => 21,  47 => 6,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -161,8 +166,13 @@ class __TwigTemplate_7c06fa7325105066e6ef6f8f7f1c02e6d1d2bdfab176ee51247abee875b
 </head>
 <body id=\"color_body\">
     <header>
-        <h1>Dupré Cédric</h1>
-        <h2>la passion du dévellopement php/symfony</h2>
+      <div id=\"flex_header\">
+          <img src=\"images/logo_crea-ced.png\" alt=\"logo de l enntreprise créa-ced\">
+          <div id=\"block_titre\">
+            <h1>Dupré Cédric</h1>
+            <h2>la passion du dévellopement php/symfony</h2>
+          </div>
+      </div>
         {% include 'menu.html.twig' %}
     </header>
     <section class=\"container\">
