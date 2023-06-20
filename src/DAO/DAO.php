@@ -23,16 +23,16 @@ abstract class DAO
             $this->connection = new PDO(DB_HOST, DB_USER, DB_PASS);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $this->connection;
-        }
-        //On lève une erreur si la connexion échoue
+        }//On lève une erreur si la connexion échoue
         catch(Exception $errorConnection){
             die('Erreur de connection:'.$errorConnection->getMessage());
         }
     }
     
     protected function createQuery($sql, $parameters = null)
-    {
-        if($parameters) {
+    { 
+        if($parameters) 
+        {
             $result = $this->checkConnection()->prepare($sql);
             $result->execute($parameters);
             return $result;

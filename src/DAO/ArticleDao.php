@@ -14,11 +14,12 @@ class ArticleDAO extends DAO
         $article->setContent($row['content']);
         $article->setAuthor($row['pseudo']);
         $article->setCreatedAt($row['createdAt']);
+        $article->setUpdateAt($row['updateAt']);
         return $article;
     }
     public function getAllArticles()
     {
-        $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id ORDER BY article.id DESC';
+        $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt, article.updateAt FROM article INNER JOIN user ON article.user_id = user.id ORDER BY article.id DESC';
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
@@ -31,7 +32,7 @@ class ArticleDAO extends DAO
 
     public function getOneArticle($articleId)
     {
-        $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id WHERE article.id = ?';
+        $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt, article.updateAt FROM article INNER JOIN user ON article.user_id = user.id WHERE article.id = ?';
         $result = $this->createQuery($sql, [$articleId]);
         $article = $result->fetch();
         $result->closeCursor();
@@ -45,7 +46,7 @@ class ArticleDAO extends DAO
     }
     public function editArticle(Parameter $post, $articleId, $userId)
     {
-        $sql = 'UPDATE article SET title=:title, content=:content, user_id=:user_id WHERE id=:articleId';
+        $sql = 'UPDATE article SET title=:title, content=:content, user_id=:user_id, updateAt=NOW() WHERE id=:articleId';
         $this->createQuery(
             $sql, [
             'title' => $post->get('title'),

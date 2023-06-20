@@ -133,28 +133,6 @@ class __TwigTemplate_8f586b12622b7fa7eab1941e3d532da07023a626b5f82b483076e0d4b8a
         <a href=\"../public/index.php\">Retour à l'accueil</a>
     </div>
 {% endblock %}
-
-{# <?php \$this->title = \"Modifier l'article\"; ?>
-<script>
-      tinymce.init({selector: '#contentAddArtticle',
-        plugins: [
-        'advlist autolink link image lists charmap print preview hr anchor pagebreak',
-        'searchreplace wordcount visualblocks visualchars fullscreen insertdatetime media nonbreaking',
-        'table emoticons template paste help'
-        ],
-        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-        'bullist numlist outdent indent | link image | print preview media fullpage | ' +
-        'forecolor backcolor emoticons | help',
-        menu: {
-        favs: {title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons'}
-        },
-        menubar: 'favs file edit view insert format tools table help'
-      });</script>
-<h3>Editer un article</h3>
-<div>
-    <?php require 'form_article.php';?>
-    <a href=\"../public/index.php\">Retour à l'accueil</a>
-</div> #}
 ", "edit_article.html.twig", "C:\\wamp64\\www\\cours php\\projet5php\\templates\\edit_article.html.twig");
     }
 }

@@ -11,7 +11,6 @@ class ErrorController extends Controller
 
     public function errorServer($e = null)
     {
-        var_dump($e);
         return $this->view->render('error_500.html.twig', ['error' => $e]);
     }
 }
