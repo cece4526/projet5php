@@ -18,7 +18,7 @@ class UserDAO extends DAO
     }
     public function getUsers()
     {
-        $sql = 'SELECT user.id, user.pseudo, user.createdAt, role.name FROM user INNER JOIN role ON user.role_id = role.id ORDER BY user.id DESC';
+        $sql = 'SELECT user.id,user.email user.pseudo, user.createdAt, role.name FROM user INNER JOIN role ON user.role_id = role.id ORDER BY user.id DESC';
         $result = $this->createQuery($sql);
         $users = [];
         foreach ($result as $row){
@@ -30,9 +30,11 @@ class UserDAO extends DAO
     }
     public function register(Parameter $post)
     {
+        
         $this->checkUser($post);
-        $sql = 'INSERT INTO user (pseudo, password, createdAt, role_id) VALUES (?, ?, NOW(), ?)';
-        $this->createQuery($sql, [$post->get('pseudo'), password_hash($post->get('password'), PASSWORD_BCRYPT), 2]);
+        $sql = 'INSERT INTO user (email, pseudo, password, createdAt, role_id) VALUES (?, ?, ?, NOW(), ?)';
+        var_dump($sql);
+        $this->createQuery($sql, [$post->get('email'), $post->get('pseudo'), password_hash($post->get('password'), PASSWORD_BCRYPT), 2]);
     }
     public function checkUser(Parameter $post)
     {
@@ -40,13 +42,22 @@ class UserDAO extends DAO
         $result = $this->createQuery($sql, [$post->get('pseudo')]);
         $isUnique = $result->fetchColumn();
         if($isUnique) {
-            return '<p>Le pseudo existe déjà</p>';
+            return 'Le pseudo existe déjàs !';
+        }
+    }
+    public function checkEmail(Parameter $post)
+    {
+    $sql = 'SELECT COUNT(email) FROM user WHERE email = ?';
+    $result = $this->createQuery($sql, [$post->get('email')]);
+    $isUnique = $result->fetchColumn();
+    if ($isUnique) {
+        return 'L\'adresse e-mail existe déjà';
         }
     }
     public function login(Parameter $post)
     {
-        $sql = 'SELECT user.id, user.role_id, user.password, role.name FROM user INNER JOIN role ON role.id = user.role_id WHERE pseudo = ?';
-        $data = $this->createQuery($sql, [$post->get('pseudo')]);
+        $sql = 'SELECT user.id, user.email, user.role_id, user.password, role.name FROM user INNER JOIN role ON role.id = user.role_id WHERE pseudo = ?';
+        $data = $this->createQuery($sql, [$post->get('email')]);
         $result = $data->fetch();
         return $result;
     }

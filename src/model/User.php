@@ -12,6 +12,11 @@ class User
     /**
      * @var string
      */
+    private $email;
+
+    /**
+     * @var string
+     */
     private $pseudo;
 
     /**
@@ -43,6 +48,22 @@ class User
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
     }
 
     /**

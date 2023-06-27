@@ -1,6 +1,6 @@
 <?php
 
-namespace App\constraint;
+namespace App\Constraint;
 use Config\Parameter;
 
 class UserValidation extends Validation
@@ -29,6 +29,10 @@ class UserValidation extends Validation
         }
         elseif ($name === 'password') {
             $error = $this->checkPassword($name, $value);
+            $this->addError($name, $error);
+        }
+        elseif ($name === 'email') {
+            $error = $this->checkEmail($name, $value);
             $this->addError($name, $error);
         }
     }
@@ -65,6 +69,16 @@ class UserValidation extends Validation
         }
         if($this->constraint->maxLength($name, $value, 255)) {
             return $this->constraint->maxLength('password', $value, 255);
+        }
+    }
+
+    private function checkEmail($name, $value)
+    {
+        if ($this->constraint->notBlank($name, $value)) {
+            return $this->constraint->notBlank('email', $value);
+        }
+        if (!$this->constraint->emailFormat($name, $value)) {
+            return $this->constraint->emailFormat('email', $value);
         }
     }
 }

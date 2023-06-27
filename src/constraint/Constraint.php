@@ -22,4 +22,10 @@ class Constraint
             return '<p>Le champ '.$name.' doit contenir au maximum '.$maxSize.' caractères</p>';
         }
     }
+    public function emailFormat($name, $value)
+    {
+        if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            return '<p>Le champ '.$name.' doit être une adresse e-mail valide</p>';
+        }
+    }
 }

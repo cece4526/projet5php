@@ -4,6 +4,7 @@ namespace App\Constraint;
 
 use Config\Parameter;
 use App\Constraint\UserValidation;
+
 class Validation
 {
     public function validate(Parameter $data, string $name)

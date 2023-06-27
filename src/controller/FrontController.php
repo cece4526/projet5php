@@ -54,7 +54,7 @@ class FrontController extends Controller
         header('Location: ../public/index.php');
     }
     public function register(Parameter $post)
-    {
+    {   
         if($post->get('submit')) {
             $errors = $this->validation->validate($post, 'User');
             if($this->userDAO->checkUser($post)) {
