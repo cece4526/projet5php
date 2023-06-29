@@ -20,11 +20,11 @@ class ContactController extends Controller
                         $Entetes .= "Content-type: text/html; charset=UTF-8\r\n";
                         $Entetes .= "From: Crea-ced <" . $post->get('mail') . ">\r\n";
                         $Entetes .= "Reply-To: Crea-ced <" . $post->get('mail') . ">\r\n";
-                        $Mail = $post->get('mail');
                         $Sujet = '=?UTF-8?B?' . base64_encode($post->get('sujet')) . '?=';
                         $Message = htmlentities($post->get('message'), ENT_QUOTES, "UTF-8");
                         if (mail($this->VotreAdresseMail, $Sujet, nl2br($Message), $Entetes)) {
-                            echo "Le mail a été envoyé avec succès !";
+                            $this->session->set('succes_mail', 'Le mail a été envoyé avec succès !');
+                            header('Location: ../public/index.php');
                         } else {
                             $this->session->set('no_send_mail', 'Une erreur est survenue, le mail n\'a pas été envoyé');
                             header('Location: ../public/index.php');
@@ -44,3 +44,4 @@ class ContactController extends Controller
         }
     }
 }
+

@@ -4,7 +4,7 @@ namespace App\Constraint;
 
 class Constraint
 {
-    public function notBlank($name, $value)
+    public function notBlank($name, $value): ?string
     {
         if(empty($value)) {
             return '<p>Le champ '.$name.' saisi est vide</p>';

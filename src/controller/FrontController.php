@@ -79,13 +79,12 @@ class FrontController extends Controller
     {
         if($post->get('submit')) {
             $user = $this->userDAO->login($post);
-            var_dump($user);
             $result = $this->checkLogin($post, $user);
             if($result && $result['isPasswordValid']) {
                 $this->session->set('login', 'Content de vous revoir');
                 $this->session->set('id', $result['result']['id']);
                 $this->session->set('role', $result['result']['name']);
-                $this->session->set('pseudo', $post->get('pseudo'));
+                $this->session->set('pseudo', $result['result']['pseudo']);
                 header('Location: ../public/index.php');
             }
             else {
@@ -101,8 +100,6 @@ class FrontController extends Controller
     }
     public function checkLogin(Parameter $post, $result)
     {
-        var_dump($result);
-        die;
         if ($result !== false) {
             $isPasswordValid = password_verify($post->get('password'), $result['password']);
 
