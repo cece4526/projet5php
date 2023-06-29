@@ -29,14 +29,17 @@ class FrontController extends Controller
     public function addComment(Parameter $post, $articleId)
     {
         if($post->get('submit')) {
-            $errors = $this->validation->validate($post, 'Comment');
-            if(!$errors) {
+            $errors = [$this->validation->validate($post, 'Comment')];
+            var_dump($errors);
+            if(empty($errors)) {
+                die;
                 $this->commentDAO->addComment($post, $articleId);
                 $this->session->set('add_comment', 'Le nouveau commentaire a bien été ajouté');
                 header('Location: ../public/index.php');
             }
             $article = $this->articleDAO->getOneArticle($articleId);
             $comments = $this->commentDAO->getCommentsFromArticle($articleId);
+            var_dump($errors);
             return $this->view->render(
                 'single.html.twig', [
                 'article' => $article,
@@ -84,6 +87,7 @@ class FrontController extends Controller
                 $this->session->set('login', 'Content de vous revoir');
                 $this->session->set('id', $result['result']['id']);
                 $this->session->set('role', $result['result']['name']);
+                $this->session->set('email', $result['result']['email']);
                 $this->session->set('pseudo', $result['result']['pseudo']);
                 header('Location: ../public/index.php');
             }

@@ -25,7 +25,7 @@ class CommentValidation extends Validation
     {
         if($name === 'pseudo') {
             $error = $this->checkPseudo($name, $value);
-            $this->addError($name, $error);
+            return $this->addError($name, $error);
         }
         elseif ($name === 'content') {
             $error = $this->checkContent($name, $value);
@@ -35,17 +35,16 @@ class CommentValidation extends Validation
 
     private function addError($name, $error)
     {
-        if($error) {
-            $this->errors += [
-                $name => $error
-            ];
+        if ($error !== null) {
+            $this->errors[$name] = $error;
         }
     }
 
     private function checkPseudo($name, $value)
     {
-        if($this->constraint->notBlank($name, $value)) {
-            return $this->constraint->notBlank('pseudo', $value);
+        $error = $this->constraint->notBlank('pseudo', $value);
+        if ($error) {
+            return $error;
         }
         if($this->constraint->minLength($name, $value, 2)) {
             return $this->constraint->minLength('pseudo', $value, 2);
@@ -62,6 +61,9 @@ class CommentValidation extends Validation
         }
         if($this->constraint->minLength($name, $value, 2)) {
             return $this->constraint->minLength('contenu', $value, 2);
+        }
+        if ($this->constraint->maxLength($name, $value, 1000)) {
+            return $this->constraint->maxLength('contenu', $value, 1000);
         }
     }
 }

@@ -12,13 +12,14 @@ class UserDAO extends DAO
         $user = new User();
         $user->setId($row['id']);
         $user->setPseudo($row['pseudo']);
+        $user->setEmail($row['email']);
         $user->setCreatedAt($row['createdAt']);
         $user->setRole($row['name']);
         return $user;
     }
     public function getUsers()
     {
-        $sql = 'SELECT user.id,user.email user.pseudo, user.createdAt, role.name FROM user INNER JOIN role ON user.role_id = role.id ORDER BY user.id DESC';
+        $sql = 'SELECT user.id,user.email, user.pseudo, user.createdAt, role.name FROM user INNER JOIN role ON user.role_id = role.id ORDER BY user.id DESC';
         $result = $this->createQuery($sql);
         $users = [];
         foreach ($result as $row){
@@ -32,6 +33,7 @@ class UserDAO extends DAO
     {
         
         $this->checkUser($post);
+        $this->checkEmail($post);
         $sql = 'INSERT INTO user (email, pseudo, password, createdAt, role_id) VALUES (?, ?, ?, NOW(), ?)';
         $this->createQuery($sql, [$post->get('email'), $post->get('pseudo'), password_hash($post->get('password'), PASSWORD_BCRYPT), 2]);
     }
@@ -55,7 +57,7 @@ class UserDAO extends DAO
     }
     public function login(Parameter $post)
     {
-        $sql = 'SELECT user.id, user.pseudo, user.role_id, user.password, role.name FROM user INNER JOIN role ON role.id = user.role_id WHERE email = ?';
+        $sql = 'SELECT user.id, user.email, user.pseudo, user.role_id, user.password, role.name FROM user INNER JOIN role ON role.id = user.role_id WHERE email = ?';
         $data = $this->createQuery($sql, [$post->get('email')]);
         $result = $data->fetch();
         return $result;

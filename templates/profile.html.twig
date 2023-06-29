@@ -6,6 +6,7 @@
         {{ session.show('update_password') }}
         <div class="content_center">
             <h2>{{ session.get('pseudo') }}</h2>
+            <p>{{ session.get('email') }}</p>
             <p>{{ session.get('role') }}</p>
             <a id="bouton5" href="../public/index.php?route=updatePassword">Modifier son mot de passe</a>
             <br>

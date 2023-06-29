@@ -3,7 +3,6 @@
 namespace App\Constraint;
 
 use Config\Parameter;
-use App\Constraint\UserValidation;
 
 class Validation
 {
@@ -15,8 +14,8 @@ class Validation
     public function createValidateClass($classValidationName, $data)
     {
         $class = 'App\Constraint\\'.$classValidationName;
-        $classValidtion = new $class;
-        $errors = $classValidtion->check($data);
+        $classValidation = new $class;
+        $errors = $classValidation->check($data);
         return $errors;
     }
 }
