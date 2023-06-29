@@ -13,6 +13,11 @@
             {{ session.show('flag_comment') }}
             {{ session.show('login') }}
             {{ session.show('delete_comment') }}
+            {{ session.show('succes_mail') }}
+            {{ session.show('no_send_mail') }}
+            {{ session.show('void_message') }}
+            {{ session.show('void_sujet') }}
+            {{ session.show('void_mail') }}
         </p>
     </div>
     {% for article in allArticles %}
@@ -31,5 +36,14 @@
         </article>
         <br>
     {% endfor %}
+    <form action="index.php?route={{ 'contactMail' }}" method="post">
+        Mail: <input type="text" name="mail" value="" />
+        <br />
+        Sujet: <input type="text" name="sujet" value="" />
+        <br />
+        Message: <textarea name="message" cols="40" rows="20"></textarea>
+        <br />
+        <input type="submit" name="envoyer" value="Envoyer" />
+    </form>
 {% endblock %}
 

@@ -5,6 +5,7 @@ use App\Controller\FrontController;
 use App\Controller\BackController;
 use App\Controller\ErrorController;
 use App\Controller\AdminController;
+use App\Controller\ContactController;
 use Exception;
 
 class Router
@@ -13,6 +14,7 @@ class Router
     private $backController;
     private $errorController;
     private $adminController;
+    private $contactController;
     private $request;
 
     public function __construct()
@@ -22,6 +24,7 @@ class Router
         $this->backController = new BackController();
         $this->errorController = new ErrorController();
         $this->adminController = new AdminController();
+        $this->contactController = new ContactController;
     }
 
     public function run()
@@ -80,6 +83,9 @@ class Router
                         break;
                     case 'administration':
                         $this->adminController->administration();
+                        break;
+                    case 'contactMail':
+                        $this->contactController->contactMail($this->request->getPost());
                         break;
                     default:
                         $this->errorController->errorNotFound();

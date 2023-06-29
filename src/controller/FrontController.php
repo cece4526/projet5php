@@ -79,6 +79,7 @@ class FrontController extends Controller
     {
         if($post->get('submit')) {
             $user = $this->userDAO->login($post);
+            var_dump($user);
             $result = $this->checkLogin($post, $user);
             if($result && $result['isPasswordValid']) {
                 $this->session->set('login', 'Content de vous revoir');
@@ -100,8 +101,11 @@ class FrontController extends Controller
     }
     public function checkLogin(Parameter $post, $result)
     {
+        var_dump($result);
+        die;
         if ($result !== false) {
             $isPasswordValid = password_verify($post->get('password'), $result['password']);
+
             return [
                 'result' => $result,
                 'isPasswordValid' => $isPasswordValid

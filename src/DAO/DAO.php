@@ -33,10 +33,14 @@ abstract class DAO
     { 
         if($parameters) 
         {
+            var_dump($parameters);
             $result = $this->checkConnection()->prepare($sql);
             $result->execute($parameters);
+            var_dump($result);
+
             return $result;
         }
+        var_dump($parameters);
         $result = $this->checkConnection()->query($sql);
         return $result;
     }
