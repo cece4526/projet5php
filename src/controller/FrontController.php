@@ -28,18 +28,23 @@ class FrontController extends Controller
     }
     public function addComment(Parameter $post, $articleId)
     {
-        if($post->get('submit')) {
-            $errors = [$this->validation->validate($post, 'Comment')];
-            var_dump($errors);
-            if(empty($errors)) {
-                die;
-                $this->commentDAO->addComment($post, $articleId);
-                $this->session->set('add_comment', 'Le nouveau commentaire a bien été ajouté');
-                header('Location: ../public/index.php');
+        if ($post->get('submit')) {
+            $errors = $this->validation->validate($post, 'Comment');
+            
+            if ($errors === null || count($errors) === 0) {
+                if ($post->get('pseudo') === $this->session->get('pseudo')) {
+                    $this->commentDAO->addComment($post, $articleId);
+                    $this->session->set('add_comment', 'Le nouveau commentaire est en attente de validation');
+                    header('Location: ../public/index.php');
+                    return;
+                } else {
+                    $errors = ['pseudo' => 'pas le meme pseudo'];
+                }
             }
+            
             $article = $this->articleDAO->getOneArticle($articleId);
             $comments = $this->commentDAO->getCommentsFromArticle($articleId);
-            var_dump($errors);
+
             return $this->view->render(
                 'single.html.twig', [
                 'article' => $article,
@@ -50,6 +55,7 @@ class FrontController extends Controller
             );
         }
     }
+
     public function flagComment($commentId)
     {
         $this->commentDAO->flagComment($commentId);

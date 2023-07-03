@@ -16,7 +16,7 @@
                     {{ session.show('validate_comment') }}
                 </p>
             </div>
-            <h4>Articles</h4>
+            <h2>Articles</h2>
             <a class="margin bouton4" href="index.php?route=addArticle">Nouvel article</a>
             <table class="table table-dark table-responsive">
                 <thead>
@@ -54,6 +54,7 @@
                         <th scope="col">Pseudo</th>
                         <th scope="col">Message</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Id  article</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -64,6 +65,7 @@
                             <td >{{ comment.getPseudo()|raw|striptags }}</td>
                             <td >{{ comment.getContent()|slice(0, 25)|raw|striptags }}</td>
                             <td >{{ comment.getCreatedAt() }}</td>
+                            <td >{{ comment.getArticleId() }}</td>
                             <td >
                                 <a href="index.php?route=unflagComment&commentId={{ comment.getId() }}">Désignaler le commentaire</a>
                                 <a href="index.php?route=deleteComment&commentId={{ comment.getId() }}">Supprimer le commentaire</a>
@@ -81,6 +83,7 @@
                         <th scope="col">Pseudo</th>
                         <th scope="col">Message</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Id  article</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -91,6 +94,7 @@
                             <td >{{ comment.getPseudo()|raw|striptags }}</td>
                             <td >{{ comment.getContent()|slice(0, 25)|raw|striptags }}</td>
                             <td >{{ comment.getCreatedAt() }}</td>
+                            <td >{{ comment.getArticleIdComment() }}</td>
                             <td >
                                 <a href="index.php?route=validateComment&commentId={{ comment.getId() }}">Valider le commentaire</a>
                                 <a href="index.php?route=deleteComment&commentId={{ comment.getId() }}">Supprimer le commentaire</a>

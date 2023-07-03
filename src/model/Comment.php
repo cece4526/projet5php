@@ -35,6 +35,11 @@ class Comment
     private $status;
 
     /**
+     * @var int
+     */
+    private $article_id;
+
+    /**
      * @return int
      */
     public function getId()
@@ -128,4 +133,19 @@ class Comment
     {
         $this->status = $status;
     }
+    /**
+     * @return int
+     */
+    public function getArticleIdComment()
+    {
+        return $this->article_id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setArticleIdComment($article_id)
+    {
+        $this->article_id = $article_id;
+    }    
 }

@@ -1,7 +1,7 @@
 <?php
 namespace App\DAO;
 use config\Parameter;
-use App\model\Comment;
+use App\Model\Comment;
 
 class CommentDAO extends DAO
 {
@@ -14,13 +14,14 @@ class CommentDAO extends DAO
         $comment->setContent($row['content']);
         $comment->setCreatedAt($row['createdAt']);
         $comment->setFlag($row['flag']);
+        $comment->setArticleIdComment($row['article_id']);
         $comment->setStatus($row['status']);
         return $comment;
     }
 
     public function getCommentsFromArticle($articleId)
     {
-        $sql = 'SELECT id, pseudo, content, createdAt, flag, status FROM comment WHERE article_id = ? ORDER BY createdAt DESC';
+        $sql = 'SELECT id, pseudo, content, createdAt, flag, article_id, status FROM comment WHERE article_id = ? ORDER BY createdAt DESC';
         $result = $this->createQuery($sql, [$articleId]);
         $allComments = [];
         foreach($result as $row){
@@ -52,9 +53,10 @@ class CommentDAO extends DAO
     }
     public function getFlagComments()
     {
-        $sql = 'SELECT id, pseudo, content, createdAt, flag, status FROM comment WHERE flag = ? ORDER BY createdAt DESC';
+        $sql = 'SELECT id, pseudo, content, createdAt, flag,article_id, status FROM comment WHERE flag = ? ORDER BY createdAt DESC';
         $result = $this->createQuery($sql, [1]);
         $comments = [];
+
         foreach ($result as $row) {
             $commentId = $row['id'];
             $comments[$commentId] = $this->buildObject($row);
@@ -64,7 +66,7 @@ class CommentDAO extends DAO
     }
     public function getStatusComments()
     {
-        $sql = 'SELECT id, pseudo, content, createdAt, flag, status FROM comment WHERE status = ? ORDER BY createdAt DESC';
+        $sql = 'SELECT id, pseudo, content, createdAt, flag, article_id, status FROM comment WHERE status = ? ORDER BY createdAt DESC';
         $result = $this->createQuery($sql, [2]);
         $statusComments = [];
         foreach ($result as $row) {

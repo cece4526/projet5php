@@ -32,7 +32,6 @@ class AdminController extends Controller
             $comments = $this->commentDAO->getFlagComments();
             $statusComments = $this->commentDAO->getStatusComments();
             $users = $this->userDAO->getUsers();
-
             return $this->view->render('administration.html.twig', [
                 'articles' => $articles,
                 'comments' => $comments,

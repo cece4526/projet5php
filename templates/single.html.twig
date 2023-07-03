@@ -3,7 +3,6 @@
 {% block content %}
 <div class="message">
     <p class="message_text">
-        {{ dump(errors) }}
     </p>
 </div>
 <article class="card card_home_center color_article" style="background-color: #cfd3ce; border: none;">
@@ -28,8 +27,8 @@
     {% for comment in allComments %}
     {% if comment.getStatus() == 1 and comment.isFlag() == 0 %}
     <div class="comment_content text_content" style="background-color: #cfd3ce; border: none;">
-        <h4>{{ comment.getPseudo()|raw|striptags }}</h4>
-        <p>{{ comment.getContent()|raw|striptags }}</p>
+        <h4>{{ comment.getPseudo()|raw|striptags('<p><br>') }}</h4>
+        <p>{{ comment.getContent()|raw|striptags('<p><br>') }}</p>
         <p>Posté le {{ comment.getCreatedAt() }}</p>
         {% if comment.isFlag() %}
             <p>Ce commentaire a déjà été signalé</p>
