@@ -29,6 +29,20 @@ header {
 
 section {
     background-color: #eee3cb;
+    #form_home {
+        width: 35%;
+        margin: auto;
+    }
+    @media screen and (max-width: 900px) and (min-width: 500px) {
+        #form_home {
+            width: 75%;
+        }
+    }
+    @media screen and (max-width: 499px) {
+        #form_home {
+            width: 100%;
+        }
+    }
 }
 
 h1, h2 {
@@ -61,7 +75,4 @@ h1, h2 {
 .message{
     text-align: center;
 }
-#form_home {
-    width: 35%;
-    margin: auto;
-}
+
