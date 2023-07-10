@@ -29,6 +29,7 @@ class FrontController extends Controller
     public function addComment(Parameter $post, $articleId)
     {
         if ($post->get('submit')) {
+            var_dump('ok');
             $errors = $this->validation->validate($post, 'Comment');
             
             if ($errors === null || count($errors) === 0) {
@@ -54,6 +55,7 @@ class FrontController extends Controller
                 ]
             );
         }
+        header('Location: ../public/index.php');
     }
 
     public function flagComment($commentId)

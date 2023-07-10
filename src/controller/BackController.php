@@ -35,7 +35,10 @@ class BackController extends Controller
 
     public function profile()
     {
-        return $this->view->render('profile.html.twig');
+        if ($this->session->get('pseudo')) {
+            return $this->view->render('profile.html.twig');
+        }
+        header('Location: ../public/index.php');
     }
 
     public function updatePassword(Parameter $post)

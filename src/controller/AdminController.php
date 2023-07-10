@@ -19,7 +19,7 @@ class AdminController extends Controller
         $this->checkLoggedIn();
         if (!($this->session->get('role') === 'admin')) {
             $this->session->set('not_admin', 'Vous n\'avez pas le droit d\'accéder à cette page');
-            header('Location: ../public/index.php?route=profile');
+            header('Location: ../public/index.php');
         } else {
             return true;
         }
@@ -43,6 +43,7 @@ class AdminController extends Controller
 
     public function addArticle(Parameter $post)
     {
+        $this->checkAdmin();
         if ($post->get('submit')) {
             $errors = $this->validation->validate($post, 'Article');
             if (!$errors) {
@@ -60,6 +61,7 @@ class AdminController extends Controller
 
     public function editArticle(Parameter $post, $articleId)
     {
+        $this->checkAdmin();
         $article = $this->articleDAO->getOneArticle($articleId);
         if ($post->get('submit')) {
             $errors = $this->validation->validate($post, 'Article');
