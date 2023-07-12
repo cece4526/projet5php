@@ -44,19 +44,19 @@ class Router
                         $this->adminController->editArticle($this->request->getPost(), $this->request->getGet()->get('articleId'));
                         break;
                     case 'deleteArticle':
-                        $this->backController->deleteArticle($this->request->getGet()->get('articleId'));
+                        $this->adminController->deleteArticle($this->request->getGet()->get('articleId'));
                         break;
                     case 'addComment':
                         $this->frontController->addComment($this->request->getPost(), $this->request->getGet()->get('articleId'));
                         break;
                     case 'validateComment':
-                        $this->backController->validateComment($this->request->getGet()->get('commentId'));
+                        $this->adminController->validateComment($this->request->getGet()->get('commentId'));
                         break;
                     case 'flagComment':
                         $this->frontController->flagComment($this->request->getGet()->get('commentId'));
                         break;
                     case 'unflagComment':
-                        $this->backController->unflagComment($this->request->getGet()->get('commentId'));
+                        $this->adminController->unflagComment($this->request->getGet()->get('commentId'));
                         break;
                     case 'deleteComment':
                         $this->backController->deleteComment($this->request->getGet()->get('commentId'));
@@ -80,7 +80,7 @@ class Router
                         $this->backController->deleteAccount();
                         break;
                     case 'deleteUser':
-                        $this->backController->deleteUser($this->request->getGet()->get('userId'));
+                        $this->adminController->deleteUser($this->request->getGet()->get('userId'));
                         break;
                     case 'administration':
                         $this->adminController->administration();

@@ -5,32 +5,24 @@ use Config\Parameter;
 
 class BackController extends Controller
 {
-    public function deleteArticle($articleId)
-    {
-        $this->articleDAO->deleteArticle($articleId);
-        $this->session->set('delete_article', 'L\'article a bien été supprimé');
-        header('Location: ../public/index.php?route=administration');
-    }
-
-    public function validateComment($commentId)
-    {
-        $this->commentDAO->validateComment($commentId);
-        $this->session->set('validate_comment', 'Le commentaire a bien été validé');
-        header('Location: ../public/index.php?route=administration');
-    }
-
-    public function unflagComment($commentId)
-    {
-        $this->commentDAO->unflagComment($commentId);
-        $this->session->set('unflag_comment', 'Le commentaire a bien été désignalé');
-        header('Location: ../public/index.php?route=administration');
+    public function checkPseudoComment($commentId) {
+        $comment = $this->commentDAO->getComment($commentId);
+        if ($comment['pseudo'] === $this->session->get('pseudo')) {
+            return true;
+        }
+        return false;
     }
 
     public function deleteComment($commentId)
     {
-        $this->commentDAO->deleteComment($commentId);
-        $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
+        if ($this->checkPseudoComment($commentId) === true) {
+            $this->commentDAO->deleteComment($commentId);
+            $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
+            header('Location: ../public/index.php');
+        }
+        $this->session->set('not_action', 'vous ne pouvez pas faire cette action');
         header('Location: ../public/index.php');
+        
     }
 
     public function profile()
@@ -38,11 +30,16 @@ class BackController extends Controller
         if ($this->session->get('pseudo')) {
             return $this->view->render('profile.html.twig');
         }
+        $this->session->set('not_action', 'vous ne pouvez pas faire cette action');
         header('Location: ../public/index.php');
     }
 
     public function updatePassword(Parameter $post)
     {
+        if ($this->session->get('pseudo') === null) {
+            $this->session->set('not_action', 'vous ne pouvez pas faire cette action');
+            header('Location: ../public/index.php');
+        }
         if ($post->get('submit')) {
             $this->userDAO->updatePassword($post, $this->session->get('pseudo'));
             $this->session->set('update_password', 'Le mot de passe a été mis à jour');
@@ -58,15 +55,12 @@ class BackController extends Controller
 
     public function deleteAccount()
     {
-        $this->userDAO->deleteAccount($this->session->get('pseudo'));
-        $this->logoutOrDelete('delete_account');
-    }
-
-    public function deleteUser($userId)
-    {
-        $this->userDAO->deleteUser($userId);
-        $this->session->set('delete_user', 'L\'utilisateur a bien été supprimé');
-        header('Location: ../public/index.php?route=administration');
+        if ($this->session->get('pseudo') !== null) {
+            $this->userDAO->deleteAccount($this->session->get('pseudo'));
+            $this->logoutOrDelete('delete_account');
+        }
+        $this->session->set('not_action', 'vous ne pouvez pas faire cette action');
+        header('Location: ../public/index.php');
     }
 
     private function logoutOrDelete($param)

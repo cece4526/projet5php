@@ -20,6 +20,7 @@ class AdminController extends Controller
         if (!($this->session->get('role') === 'admin')) {
             $this->session->set('not_admin', 'Vous n\'avez pas le droit d\'accéder à cette page');
             header('Location: ../public/index.php');
+            exit;
         } else {
             return true;
         }
@@ -83,5 +84,37 @@ class AdminController extends Controller
         return $this->view->render('edit_article.html.twig', [
             'post' => $post
         ]);
+    }
+
+    public function validateComment($commentId)
+    {
+        $this->checkAdmin();
+        $this->commentDAO->validateComment($commentId);
+        $this->session->set('validate_comment', 'Le commentaire a bien été validé');
+        header('Location: ../public/index.php?route=administration');
+    }
+
+    public function deleteArticle($articleId)
+    {
+        $this->checkAdmin();
+        $this->articleDAO->deleteArticle($articleId);
+        $this->session->set('delete_article', 'L\'article a bien été supprimé');
+        header('Location: ../public/index.php?route=administration');
+    }
+    
+    public function unflagComment($commentId)
+    {
+        $this->checkAdmin();
+        $this->commentDAO->unflagComment($commentId);
+        $this->session->set('unflag_comment', 'Le commentaire a bien été désignalé');
+        header('Location: ../public/index.php?route=administration');
+    }
+    public function deleteUser($userId)
+    {
+        $this->checkAdmin();
+        $this->userDAO->deleteUser($userId);
+        $this->session->set('delete_user', 'L\'utilisateur a bien été supprimé');
+        header('Location: ../public/index.php?route=administration');
+        
     }
 }

@@ -29,9 +29,7 @@ class FrontController extends Controller
     public function addComment(Parameter $post, $articleId)
     {
         if ($post->get('submit')) {
-            var_dump('ok');
             $errors = $this->validation->validate($post, 'Comment');
-            
             if ($errors === null || count($errors) === 0) {
                 if ($post->get('pseudo') === $this->session->get('pseudo')) {
                     $this->commentDAO->addComment($post, $articleId);
@@ -55,6 +53,7 @@ class FrontController extends Controller
                 ]
             );
         }
+        $this->session->set('not_action', 'vous ne pouvez pas faire cette action');
         header('Location: ../public/index.php');
     }
 
